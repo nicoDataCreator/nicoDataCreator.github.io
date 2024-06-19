@@ -3,3 +3,5 @@ logo: /assets/img/dataScience.png
 #description: text below image
 show_downloads: true
 theme: jekyll-theme-minimal
+exclude:
+  - "favicon.ico"
