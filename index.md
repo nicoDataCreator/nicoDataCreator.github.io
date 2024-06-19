@@ -22,6 +22,50 @@ My keen interest in current affairs and new technologies has driven me to delve 
 - Highlights Leadership & Teamwork: Strategic decision-making, motivating teammates, clear communication, adapting to challenges.
 
 ## Projects
+
+### Wayness Start-up: Balancing Duty and Pleasure
+
+We are a new start-up focused on creating motivation to achieve the right balance between duty and pleasure, responsibility and hobbies, thereby improving people's quality of life. We strongly believe that a proper balance between physical, mental, and emotional health is essential for happiness and productivity. Our goal is to develop an app that, through a point system and appropriate incentives, encourages users to engage in physical activity.
+
+![web](/assets/img/waynessWeb.jpg)
+
+### WaynessMarketing: Exercise Measurement and Rewards Application
+### Machine Learning: Points and Effort
+
+**Description:**
+This application aims to motivate people to exercise through a point-based reward system.
+
+**Features:**
+- **Exercise Measurement:** Uses the device's motion sensor to track physical activity such as steps, distance, calories burned, and exercise time.
+- **Point Calculation:** Calculates points based on recorded activity.
+- **Point Prediction:** Uses a machine learning algorithm to predict points for specific exercise sessions.
+- **Rewards Market:** Accumulated points can be redeemed for various health and wellness-related rewards.
+
+**Technologies:**
+- **Programming Languages:** Python, Markdown, HTML, CSS, Streamlit
+- **Database:** Sample data from various users exercising for specific durations.
+- **Machine Learning:** ML, SKLearn
+
+**Requirements:**
+- Mobile device with a motion sensor
+- Internet connection
+- User account in the app
+
+**Usage Instructions:**
+1. Create or log into your user account.
+2. Activate your device's motion sensor.
+3. Start exercising.
+4. The app will track your activity and display earned points.
+5. Access the rewards market to redeem your points.
+
+**Contributions:**
+Contribute by:
+- Reporting issues on GitHub
+- Suggesting new features or improvements
+- Helping translate the app into other languages
+
+![app](/assets/img/puntosWayness.jpg)
+
 ### Chatbot
 ### Virtual Assistant Chatbot in Streamlit
 
@@ -104,53 +148,6 @@ The application includes two main features:
 
 
 ![map](/assets/img/map.jpg)
-
-### Wayness Start-up: Balancing Duty and Pleasure
-
-We are a new start-up focused on creating motivation to achieve the right balance between duty and pleasure, responsibility and hobbies, thereby improving people's quality of life. We strongly believe that a proper balance between physical, mental, and emotional health is essential for happiness and productivity. Our goal is to develop an app that, through a point system and appropriate incentives, encourages users to engage in physical activity.
-
-![web](/assets/img/waynessWeb.jpg)
-
-### WaynessMarketing: Exercise Measurement and Rewards Application
-### Machine Learning: Points and Effort
-
-**Description:**
-This application aims to motivate people to exercise through a point-based reward system.
-
-**Features:**
-- **Exercise Measurement:** Uses the device's motion sensor to track physical activity such as steps, distance, calories burned, and exercise time.
-- **Point Calculation:** Calculates points based on recorded activity.
-- **Point Prediction:** Uses a machine learning algorithm to predict points for specific exercise sessions.
-- **Rewards Market:** Accumulated points can be redeemed for various health and wellness-related rewards.
-
-**Technologies:**
-- **Programming Languages:** Python, Markdown, HTML, CSS, Streamlit
-- **Database:** Sample data from various users exercising for specific durations.
-- **Machine Learning:** ML, SKLearn
-
-**Requirements:**
-- Mobile device with a motion sensor
-- Internet connection
-- User account in the app
-
-**Usage Instructions:**
-1. Create or log into your user account.
-2. Activate your device's motion sensor.
-3. Start exercising.
-4. The app will track your activity and display earned points.
-5. Access the rewards market to redeem your points.
-
-**Contributions:**
-Contribute by:
-- Reporting issues on GitHub
-- Suggesting new features or improvements
-- Helping translate the app into other languages
-
-**Contact:**
-For questions or comments, contact us at waynessapp@gmail.com
-
-![app](/assets/img/puntosWayness.jpg)
-
 
 ### Exploratory Data Analysis (EDA): Relationship Between Google Searches, Platforms, and Bitcoin Price
 
