@@ -1,4 +1,5 @@
-As a passionate entrepreneur with a decade of experience in professional rugby, I bring a unique blend of discipline and strategic thinking to the table. Fluent in three languages, I thrive on building strong relationships and have a background as a personal trainer. My keen interest in current affairs and new technologies has driven me to delve into programming, Data Science, and Machine Learning. I am seeking a challenging role where I can leverage my diverse skills and experiences to drive success in an innovative company.
+As a passionate entrepreneur with a decade of experience in professional rugby, I bring a unique blend of discipline and strategic thinking to the table. Fluent in three languages, I thrive on building strong relationships and have a background as a personal trainer.
+My keen interest in current affairs and new technologies has driven me to delve into programming, Data Science, and Machine Learning. I am seeking a challenging role where I can leverage my diverse skills and experiences to drive success in an innovative company.
 
 #### Technical Skills: Python, SQL, AWS, PowerBI, MATLAB, ML, LLM
 
