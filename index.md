@@ -61,3 +61,4 @@ Object-Oriented Programming (OOP): This paradigm allows me to create reusable ob
 Data Structures and Algorithms: Learning efficient data structures like lists and dictionaries, along with algorithms for tasks like searching and sorting, will help me optimize future projects.
 GUI Development: Adding a graphical user interface to Battleship would significantly enhance the user experience. Exploring libraries like Pygame or Tkinter would be a great next step.
 I'm confident that mastering these additional skills will enable me to create even more engaging and sophisticated Python applications in the future.
+![Battleship](/assets/img/hundirLaFlota.png)
