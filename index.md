@@ -23,29 +23,167 @@ My keen interest in current affairs and new technologies has driven me to delve 
 
 ## Projects
 ### Chatbot
-[Publication](https://chatybe.streamlit.app/)
-Developed a chatbot using ML and Streamlit in Python.
+### Virtual Assistant Chatbot in Streamlit
+
+This project showcases a virtual assistant chatbot developed using Streamlit and PostgreSQL, designed to answer queries and store conversations in a database.
+
+**Key Features:**
+- Developed with Streamlit
+- Uses PostgreSQL for data storage
+- Incorporates NLP with `nltk`
+- Deployed on Streamlit Cloud
+- Trained with a JSON file of intents
+
+**Project Structure:**
+Includes essential files like `app.py`, `chatbot.py`, and `intents.json`, along with a trained model stored in `modelos entrenados/`.
+
+**Run Locally:**
+Clone the repo, set up a virtual environment, install dependencies, and run with `streamlit run app.py`.
+
+**Demo:**
+Explore the deployed application [here](https://chatybe.streamlit.app/).
 
 ![Chaty](/assets/img/chaty.jpg)
 
 ### Graph of Word Counts Split by Interest
-Created a visualization of word counts divided by topics of interest that users wrote on the chatbot.
+### Data Visualization Project with Streamlit
+
+This project uses Streamlit to create interactive charts based on data from a PostgreSQL database deployed on Render. It includes visualizations for frequently asked questions, message origins, and popular destinations.
+
+**Features:**
+- Bar charts for FAQs, message origins, and popular destinations.
+
+**Setup:**
+1. Clone the repo:
+    ```sh
+    git clone https://github.com/nicoDataCreator/dashboard.git
+    cd dashboard
+    ```
+2. Create and activate a virtual environment:
+    ```sh
+    python -m venv env
+    source env/bin/activate  # On Windows use `env\Scripts\activate`
+    ```
+3. Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+**Environment Variables:**
+Create a `.env` file:
+```sh
+my_database=tu_base_de_datos
+my_host=tu_host
+my_password=tu_contraseña
+my_port=tu_puerto
+my_user=tu_usuario
+```
+
 
 ![grafico](/assets/img/graf.jpg)
 
 ### Maps Using Folium
-Generated interactive maps using Folium in Python.
+### Map Visualization Application with Streamlit
+
+This application, developed with Streamlit, displays interactive maps highlighting locations of volunteer programs and campsites. Clicking on the flags at each location opens a link with more information.
+
+**Description:**
+The application includes two main features:
+- **Volunteering Programs**: Displays a map with locations of various volunteer programs.
+- **Campsites**: Shows a map with different campsite locations.
+
+**Technologies Used:**
+- Python
+- Streamlit
+- psycopg2
+- pandas
+- folium
+- plotly
+- streamlit-folium
+- streamlit-option-menu
+
 
 ![map](/assets/img/map.jpg)
 
-### WaynessApp
-Developed a personal project named WaynessApp.
+### Wayness Start-up: Balancing Duty and Pleasure
 
+We are a new start-up focused on creating motivation to achieve the right balance between duty and pleasure, responsibility and hobbies, thereby improving people's quality of life. We strongly believe that a proper balance between physical, mental, and emotional health is essential for happiness and productivity. Our goal is to develop an app that, through a point system and appropriate incentives, encourages users to engage in physical activity.
+
+![web](/assets/img/waynessWeb.jpg)
+
+### WaynessMarketing: Exercise Measurement and Rewards Application
 ### Machine Learning: Points and Effort
-Built a machine learning model to predict points based on effort.
 
-### EDA on Bitcoin and Google
-Conducted exploratory data analysis on Bitcoin and Google trends.
+**Description:**
+This application aims to motivate people to exercise through a point-based reward system.
+
+**Features:**
+- **Exercise Measurement:** Uses the device's motion sensor to track physical activity such as steps, distance, calories burned, and exercise time.
+- **Point Calculation:** Calculates points based on recorded activity.
+- **Point Prediction:** Uses a machine learning algorithm to predict points for specific exercise sessions.
+- **Rewards Market:** Accumulated points can be redeemed for various health and wellness-related rewards.
+
+**Technologies:**
+- **Programming Languages:** Python, Markdown, HTML, CSS, Streamlit
+- **Database:** Sample data from various users exercising for specific durations.
+- **Machine Learning:** ML, SKLearn
+
+**Requirements:**
+- Mobile device with a motion sensor
+- Internet connection
+- User account in the app
+
+**Usage Instructions:**
+1. Create or log into your user account.
+2. Activate your device's motion sensor.
+3. Start exercising.
+4. The app will track your activity and display earned points.
+5. Access the rewards market to redeem your points.
+
+**Contributions:**
+Contribute by:
+- Reporting issues on GitHub
+- Suggesting new features or improvements
+- Helping translate the app into other languages
+
+**Contact:**
+For questions or comments, contact us at waynessapp@gmail.com
+
+![app](/assets/img/puntosWayness.jpg)
+
+
+### Exploratory Data Analysis (EDA): Relationship Between Google Searches, Platforms, and Bitcoin Price
+
+**Introduction:**
+This analysis explores the relationship between Google searches related to Bitcoin, platform activity, and Bitcoin prices over the past 10 years.
+
+**Approach:**
+- **Time Series Analysis:** Investigate temporal trends in Bitcoin price, Google search volume, and platform activity.
+- **Correlations:** Identify correlations and use Granger causality analysis.
+- **Visualization:** Utilize time series plots, heatmaps, and scatter plots.
+
+**Tools and Resources:**
+- **Tools:** Python, Pandas, NumPy, Matplotlib, statsmodels.
+- **Resources:** Google Trends API, relevant platform APIs.
+
+**Steps:**
+1. Data collection
+2. Data cleaning
+3. Exploratory data analysis
+4. Correlation analysis
+5. Visualization
+6. Regression analysis
+7. Interpretation of results
+
+**Objectives:**
+- Identify trends and patterns related to Bitcoin.
+- Determine the influence of Google searches and platform activity on Bitcoin prices.
+
+**Conclusions and Recommendations:**
+By the end of the analysis, we aim to better understand the dynamics between Google searches, platform activity, and Bitcoin prices.
+
+![eda](/assets/img/EDA.jpg)
+
 
 ### Battleship with Python
 Building Battleship involved using several core Python skills:
