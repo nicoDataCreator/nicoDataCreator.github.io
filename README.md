@@ -1,9 +1,9 @@
 ## Contact
-- **email** | [coronelnicolasjuan@gmail.com](coronelnicolasjuan@gmail.com)
-- **phone** | +34 621 05 31 29
-- **linkedin** | [Profile](https://www.linkedin.com/in/nicolasjuancoronel)
-- **github** | [Profile](https://github.com/nicouicreator)
-- **X** | [Profile](https://x.com/NicolasjCoronel)
+- **email** | [coronelnicolasjuan@gmail.com](mailto:coronelnicolasjuan@gmail.com)
+- **phone** | [+34-621 05 31 29](tel:+34621053129)
+- **linkedin** | [linkedin.com/in/nicolasjuancoronel](https://www.linkedin.com/in/nicolasjuancoronel)
+- **github** | [github.com/nicouicreator](https://github.com/nicouicreator)
+- **X** | [x.com/NicolasjCoronel](https://x.com/NicolasjCoronel)
 - **whatsapp** | Send me a message on WhatsApp [here](https://wa.me/34621053129)
 ![wame](/assets/img/wame.png)
 
