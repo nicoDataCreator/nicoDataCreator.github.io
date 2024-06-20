@@ -29,7 +29,6 @@ We are a new start-up focused on creating motivation to achieve the right balanc
 
 ![web](/assets/img/waynessWeb.jpg)
 
-### WaynessMarketing: Exercise Measurement and Rewards Application
 ### Machine Learning: Points and Effort
 
 **Description:**
@@ -66,7 +65,6 @@ Contribute by:
 
 ![app](/assets/img/puntosWayness.jpg)
 
-### Chatbot
 ### Virtual Assistant Chatbot in Streamlit
 
 This project showcases a virtual assistant chatbot developed using Streamlit and PostgreSQL, designed to answer queries and store conversations in a database.
@@ -89,7 +87,6 @@ Explore the deployed application [here](https://chatybe.streamlit.app/).
 
 ![Chaty](/assets/img/chaty.jpg)
 
-### Graph of Word Counts Split by Interest
 ### Data Visualization Project with Streamlit
 
 This project uses Streamlit to create interactive charts based on data from a PostgreSQL database deployed on Render. It includes visualizations for frequently asked questions, message origins, and popular destinations.
@@ -126,8 +123,7 @@ my_user=tu_usuario
 
 ![grafico](/assets/img/graf.jpg)
 
-### Maps Using Folium
-### Map Visualization Application with Streamlit
+### Map Visualization Application with Streamlit Using Folium
 
 This application, developed with Streamlit, displays interactive maps highlighting locations of volunteer programs and campsites. Clicking on the flags at each location opens a link with more information.
 
