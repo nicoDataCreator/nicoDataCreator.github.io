@@ -4,7 +4,7 @@
 - **Linkedin** | [linkedin.com/in/nicolasjuancoronel](https://www.linkedin.com/in/nicolasjuancoronel)
 - **Github** | [github.com/nicouicreator](https://github.com/nicouicreator)
 - **X** | [x.com/NicolasjCoronel](https://x.com/NicolasjCoronel)
-- **Whatsapp** | [Link](https://wa.me/34621053129)
+- **Whatsapp** | [Contact me!](https://wa.me/34621053129)
 - ![wame](/assets/img/wame.png)
 
 
