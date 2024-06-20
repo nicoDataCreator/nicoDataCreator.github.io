@@ -1,11 +1,12 @@
 ## Contact
-- **email** | [coronelnicolasjuan@gmail.com](mailto:coronelnicolasjuan@gmail.com)
-- **phone** | [+34-621 05 31 29](tel:+34621053129)
-- **linkedin** | [linkedin.com/in/nicolasjuancoronel](https://www.linkedin.com/in/nicolasjuancoronel)
-- **github** | [github.com/nicouicreator](https://github.com/nicouicreator)
+- **Email** | [coronelnicolasjuan@gmail.com](mailto:coronelnicolasjuan@gmail.com)
+- **Phone** | [+34-621 05 31 29](tel:+34621053129)
+- **Linkedin** | [linkedin.com/in/nicolasjuancoronel](https://www.linkedin.com/in/nicolasjuancoronel)
+- **Github** | [github.com/nicouicreator](https://github.com/nicouicreator)
 - **X** | [x.com/NicolasjCoronel](https://x.com/NicolasjCoronel)
-- **whatsapp** | Send me a message on WhatsApp [here](https://wa.me/34621053129)
-![wame](/assets/img/wame.png)
+- **Whatsapp** | [Link](https://wa.me/34621053129)
+- ![wame](/assets/img/wame.png)
+
 
 ## About Me
 
