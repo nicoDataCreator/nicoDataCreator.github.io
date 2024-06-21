@@ -39,7 +39,9 @@ As a passionate entrepreneur with a decade of experience in professional rugby, 
 
 ### Wayness Start-up: Balancing Duty and Pleasure
 
-We are a new start-up focused on creating motivation to achieve the right balance between duty and pleasure, responsibility and hobbies, thereby improving people's quality of life. We strongly believe that a proper balance between physical, mental, and emotional health is essential for happiness and productivity. Our goal is to develop an app that, through a point system and appropriate incentives, encourages users to engage in physical activity.
+We are a new start-up focused on creating motivation to achieve the right balance between duty and pleasure, responsibility and hobbies, thereby improving people's quality of life.
+
+We strongly believe that a proper balance between physical, mental, and emotional health is essential for happiness and productivity. Our goal is to develop an app that, through a point system and appropriate incentives, encourages users to engage in physical activity.
 
 ![web](/assets/img/waynessWeb.jpg)
 
@@ -195,15 +197,17 @@ By the end of the analysis, we aim to better understand the dynamics between Goo
 ### Battleship with Python
 Building Battleship involved using several core Python skills:
 
-Variables and Data Types: I used variables to store game information like player boards, ship locations, and hit markers. I also experimented with different data types, such as strings and integers, to represent the various elements of the game.
-Control Flow: The game heavily relied on control flow statements like if and for loops. These allowed me to control the game's flow, from setting up the boards to handling player turns and determining the winner.
-Functions: I broke down the game logic into smaller, reusable functions for actions like placing ships, attacking enemy positions, and checking for hits or misses. This modular approach made the code more organized and easier to understand.
-Basic Input and Output: Battleship required interaction with the user. I used Python's input functions to accept player choices for ship placement and target coordinates. Additionally, I used print statements to display the game board, announce hits and misses, and provide feedback throughout the game.
+-Variables and Data Types: I used variables to store game information like player boards, ship locations, and hit markers. I also experimented with different data types, such as strings and integers, to represent the various elements of the game.
+-Control Flow: The game heavily relied on control flow statements like if and for loops. These allowed me to control the game's flow, from setting up the boards to handling player turns and determining the winner.
+-Functions: I broke down the game logic into smaller, reusable functions for actions like placing ships, attacking enemy positions, and checking for hits or misses. This modular approach made the code more organized and easier to understand.
+-Basic Input and Output: Battleship required interaction with the user. I used Python's input functions to accept player choices for ship placement and target coordinates. Additionally, I used print statements to display the game board, announce hits and misses, and provide feedback throughout the game.
 
 While I focused on these core skills in Battleship, I understand that building more complex applications requires additional knowledge. I'm eager to learn more about:
 
-Object-Oriented Programming (OOP): This paradigm allows me to create reusable objects for different game components, enhancing code organization and maintainability.
-Data Structures and Algorithms: Learning efficient data structures like lists and dictionaries, along with algorithms for tasks like searching and sorting, will help me optimize future projects.
-GUI Development: Adding a graphical user interface to Battleship would significantly enhance the user experience. Exploring libraries like Pygame or Tkinter would be a great next step.
+-Object-Oriented Programming (OOP): This paradigm allows me to create reusable objects for different game components, enhancing code organization and maintainability.
+-Data Structures and Algorithms: Learning efficient data structures like lists and dictionaries, along with algorithms for tasks like searching and sorting, will help me optimize future projects.
+-GUI Development: Adding a graphical user interface to Battleship would significantly enhance the user experience. Exploring libraries like Pygame or Tkinter would be a great next step.
+
 I'm confident that mastering these additional skills will enable me to create even more engaging and sophisticated Python applications in the future.
+
 ![Battleship](/assets/img/hundirLaFlota.png)
