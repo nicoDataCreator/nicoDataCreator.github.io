@@ -96,8 +96,6 @@ Includes essential files like `app.py`, `chatbot.py`, and `intents.json`, along 
 **Run Locally:**
 Clone the repo, set up a virtual environment, install dependencies, and run with `streamlit run app.py`.
 
-**Demo:**
-Explore the deployed application [here](https://chatybe.streamlit.app/).
 
 ![Chaty](/assets/img/chaty.jpg)
 
