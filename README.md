@@ -16,6 +16,7 @@ As a passionate entrepreneur with a decade of experience in professional rugby, 
 #### Professional Skills: Python, SQL, AWS, PowerBI, MATLAB, ML, LLM
 
 ## Education
+- **BIGDATA** | Virensis, Madrid (_2024_)
 - **Data Science** | The Bridge/Digital Talent, Madrid (_2024_)
 - **Macro-economics** | Saylor Academy / Online (_2023_)
 - **Sport Management** | Universidad Europea del Atlantico (_2016-2017_)
