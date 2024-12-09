@@ -20,28 +20,39 @@ As a professional with a strong background in both sports and technology, I brin
 - **SAP** | LOGALI Group, Online (_2024_)
 
 - **BIGDATA** | Virensis, Madrid (_2024_)
+
 - Developed expertise in big data technologies, focusing on data processing, analysis, and management. Learned to work with large-scale datasets using advanced tools and frameworks for efficient data handling and decision-making.
+
 - **Data Science** | The Bridge/Digital Talent, Madrid (_2024_)
+
 - I gained expertise in data analysis, machine learning, programming (Python, SQL), data visualization, and ETL processes. I developed practical skills in handling complex datasets, building predictive models, and deriving actionable insights to solve real-world problems.
+
 - **Macro-economics** | Saylor Academy / Online (_2023_)
+
 - Acquired an understanding of macroeconomic principles, including economic growth, inflation, unemployment, and monetary policies, and their impact on global and national economies.
+
 - **Sport Management** | Universidad Europea del Atlantico (_2016-2017_)
 
 ## Work Experience
 
 **SDR-Account Executive @ Betterplace , Oviedo (_2024_)**
+
 - Attracting potential clients through impactful presentations that showcase the excellence of our UX/UI solutions, successfully closing sales, and supporting operations through accurate data entry and efficient ETL processes to enhance data-driven decision-making.
 
 **Real Estate @ Tecnocasa, Madrid (_2023 - 2024_)**
+
 - Responsible for researching, managing, and providing expert guidance on the purchase and sale of real estate, while also performing data entry and executing ETL processes to ensure accurate and streamlined data management
 
 **Administrative Assistant @ Rivadavia Seguros, Argentina (_2022 - 2023_)**
+
 - Experience in the management, administration and advice of Life, Health, Civil and Automotive insurance.
 
 **Personal Trainer @ Elite Round Club, Roma (_2018 - 2020_)**
+
 - Personal Trainer, Room instructor manager, supervision of new clients.
 
 **Pro Rugby Player @ Many Clubs, Italy-England-Spain-Poland (_2013 - 2023_)**
+
 - Highlights Leadership & Teamwork: Strategic decision-making, motivating teammates, clear communication, adapting to challenges.
 
 ## Projects
