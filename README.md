@@ -28,8 +28,10 @@ As a professional with a strong background in both sports and technology, I brin
 - **Sport Management** | Universidad Europea del Atlantico (_2016-2017_)
 
 ## Work Experience
+
 **SDR-Account Executive @ Betterplace , Oviedo (_2024_)**
 - Attracting potential clients through impactful presentations that showcase the excellence of our UX/UI solutions, successfully closing sales, and supporting operations through accurate data entry and efficient ETL processes to enhance data-driven decision-making.
+
 **Real Estate @ Tecnocasa, Madrid (_2023 - 2024_)**
 - Responsible for researching, managing, and providing expert guidance on the purchase and sale of real estate, while also performing data entry and executing ETL processes to ensure accurate and streamlined data management
 
