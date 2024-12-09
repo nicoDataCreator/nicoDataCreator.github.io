@@ -8,23 +8,30 @@
 
 ## About Me
 
-I am currently focused on roles in Data Science, Machine Learning (ML), and Large Language Models (LLM), as well as data analysis. My goal is to leverage my diverse skills and experiences to drive success in an innovative company.
+I am currently working at a startup as an SDR, learning and taking on more responsibilities. My profile is focused on roles in Data Science, Machine Learning (ML), and Large Language Models (LLM), as well as Data Analysis. My goal is to leverage my diverse skills and experiences to drive success in an innovative company.
 
-As a passionate entrepreneur with a decade of experience in professional rugby, I bring a unique blend of discipline and strategic thinking to the table. Fluent in three languages, I thrive on building strong relationships and have a background as a personal trainer. My keen interest in current affairs and new technologies has driven me to delve into programming, Data Science, and Machine Learning. Additionally, my extensive experience in professional sports has honed my ability to work effectively in teams.
+As a professional with a strong background in both sports and technology, I bring a blend of discipline, teamwork, and analytical skills. With over a decade of experience in professional rugby, I've honed my ability to work effectively within a team environment, adapting to diverse challenges and consistently delivering results. I'm proficient in three languages: Italian, English, and Spanish, enabling seamless communication and collaboration with international teams. I'm a highly motivated and positive individual, always eager to learn and grow. 
 
 ## Skills
-#### Professional Skills: Python, SQL, AWS, PowerBI, MATLAB, ML, LLM
+#### Professional Skills: Python, SQL, AWS, PowerBI, ML, LLM
 
 ## Education
+
 - **SAP** | LOGALI Group, Online (_2024_)
+
 - **BIGDATA** | Virensis, Madrid (_2024_)
+- Developed expertise in big data technologies, focusing on data processing, analysis, and management. Learned to work with large-scale datasets using advanced tools and frameworks for efficient data handling and decision-making.
 - **Data Science** | The Bridge/Digital Talent, Madrid (_2024_)
+- I gained expertise in data analysis, machine learning, programming (Python, SQL), data visualization, and ETL processes. I developed practical skills in handling complex datasets, building predictive models, and deriving actionable insights to solve real-world problems.
 - **Macro-economics** | Saylor Academy / Online (_2023_)
+- Acquired an understanding of macroeconomic principles, including economic growth, inflation, unemployment, and monetary policies, and their impact on global and national economies.
 - **Sport Management** | Universidad Europea del Atlantico (_2016-2017_)
 
 ## Work Experience
+**SDR-Account Executive @ Betterplace , Oviedo (_2024_)**
+- Attracting potential clients through impactful presentations that showcase the excellence of our UX/UI solutions, successfully closing sales, and supporting operations through accurate data entry and efficient ETL processes to enhance data-driven decision-making.
 **Real Estate @ Tecnocasa, Madrid (_2023 - 2024_)**
-- In charge of searching, managing, and advising on the purchase and sale of real estate.
+- Responsible for researching, managing, and providing expert guidance on the purchase and sale of real estate, while also performing data entry and executing ETL processes to ensure accurate and streamlined data management
 
 **Administrative Assistant @ Rivadavia Seguros, Argentina (_2022 - 2023_)**
 - Experience in the management, administration and advice of Life, Health, Civil and Automotive insurance.
