@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicolas Coronel - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Portfolio of Nicolas Coronel - BDR & Account Executive focused on software, data and partnerships."/>
+</head>
+<body>
+  <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  <header>
+    <h1>Nicolas Coronel</h1>
+    <p>BDR - Account Executive | Software & Data Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="about">
+    <img src="assets/profile.jpg" alt="Profile" class="profile-img" />
+    <div>
+      <h2>About Me</h2>
+      <p>
+        After a successful period driving sales and client acquisition in Rome, I am now based in Madrid, combining my experience in technology and professional sports. 
+        Fluent in English, Italian, and Spanish, I thrive at the intersection of <b>software sales</b>, <b>data</b>, and <b>innovation</b>.
+      </p>
+      <ul class="badges">
+        <li>AWS Cloud Quest: Cloud Practitioner</li>
+        <li>Data Science (Python, SQL, ML)</li>
+        <li>Agile Project Management</li>
+      </ul>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:nico.coronel@protonmail.com">nico.coronel@protonmail.com</a></p>
+    <p>Phone: <a href="tel:+34621053129">+34 621 053 129</a></p>
+    <p><a href="https://linkedin.com/in/nicolasjuancoronel" target="_blank" rel="noopener">LinkedIn</a> | 
+       <a href="https://nicodatacreator.github.io" target="_blank" rel="noopener">Old Portfolio</a></p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <ul class="skills-grid">
+      <li>Python</li>
+      <li>SQL</li>
+      <li>JavaScript</li>
+      <li>ETL</li>
+      <li>Power BI</li>
+      <li>Docker</li>
+      <li>PyTorch</li>
+      <li>Strategic Thinking</li>
+      <li>Negotiation</li>
+      <li>Presentation Skills</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="card">
+      <h3>SDR-Account Executive @ Betterplace</h3>
+      <p><em>2024 · Oviedo</em></p>
+      <p>Attracting potential clients through impactful presentations that showcase the excellence of our UX/UI solutions, successfully closing sales, and supporting operations through accurate data entry and efficient ETL processes to enhance data-driven decision-making.</p>
+    </div>
+    <div class="card">
+      <h3>Real Estate @ Tecnocasa</h3>
+      <p><em>2023 - 2024 · Madrid</em></p>
+      <p>Responsible for researching, managing, and providing expert guidance on the purchase and sale of real estate, while also performing data entry and executing ETL processes to ensure accurate and streamlined data management.</p>
+    </div>
+    <div class="card">
+      <h3>Administrative Assistant @ Rivadavia Seguros</h3>
+      <p><em>2022 - 2023 · Argentina</em></p>
+      <p>Experience in the management, administration and advice of Life, Health, Civil and Automotive insurance.</p>
+    </div>
+    <div class="card">
+      <h3>Personal Trainer @ Elite Round Club</h3>
+      <p><em>2018 - 2020 · Rome</em></p>
+      <p>Personal Trainer, room instructor manager, and supervision of new clients.</p>
+    </div>
+    <div class="card">
+      <h3>Pro Rugby Player @ Many Clubs</h3>
+      <p><em>2013 - 2023 · Italy · England · Spain · Poland</em></p>
+      <p><strong>Highlights:</strong> Leadership & Teamwork: strategic decision-making, motivating teammates, clear communication, adapting to challenges.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>SAP | LOGALI Group</h3>
+      <p><em>Online · 2024</em></p>
+    </div>
+    <div class="card">
+      <h3>BIGDATA | Virensis</h3>
+      <p><em>Madrid · 2024</em></p>
+      <p>Developed expertise in big data technologies, focusing on data processing, analysis, and management. Worked with large-scale datasets using advanced tools and frameworks for efficient data handling and decision-making.</p>
+    </div>
+    <div class="card">
+      <h3>Data Science | The Bridge/Digital Talent</h3>
+      <p><em>Madrid · 2024</em></p>
+      <p>I gained expertise in data analysis, machine learning, programming (Python, SQL), data visualization, and ETL processes. I developed practical skills in handling complex datasets, building predictive models, and deriving actionable insights to solve real-world problems.</p>
+    </div>
+    <div class="card">
+      <h3>Macro-economics | Saylor Academy</h3>
+      <p><em>Online · 2023</em></p>
+      <p>Understanding macroeconomic principles: growth, inflation, unemployment, and monetary policies, and their impact on global and national economies.</p>
+    </div>
+    <div class="card">
+      <h3>Sport Management | Universidad Europea del Atlántico</h3>
+      <p><em>2016 - 2017</em></p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card project">
+      <div class="project-header">
+        <h3>Wayness Start-up: Balancing Duty and Pleasure</h3>
+      </div>
+      <p>Start-up focused on motivating healthy habits via a points-based rewards system.</p>
+      <ul class="badges">
+        <li>Python</li><li>Streamlit</li><li>ML</li><li>SKLearn</li>
+      </ul>
+      <div class="gallery-grid">
+        <img src="assets/puntosWayness.jpg" alt="Wayness ML points" onclick="expandImage(this)">
+        <img src="assets/waynessWeb.jpg" alt="Wayness landing" onclick="expandImage(this)">
+      </div>
+    </div>
+
+    <div class="card project">
+      <h3>Virtual Assistant Chatbot in Streamlit</h3>
+      <p>Virtual assistant built with Streamlit & PostgreSQL, trained with intents and storing conversations.</p>
+      <ul class="badges">
+        <li>Streamlit</li><li>PostgreSQL</li><li>NLP (nltk)</li>
+      </ul>
+      <div class="gallery-grid">
+        <img src="assets/chaty.jpg" alt="Chatbot UI" onclick="expandImage(this)">
+        <img src="assets/graf.jpg" alt="FAQs chart" onclick="expandImage(this)">
+      </div>
+    </div>
+
+    <div class="card project">
+      <h3>Data Visualization with Streamlit</h3>
+      <p>Interactive charts from a PostgreSQL DB deployed on Render. Includes FAQs, message origin and destinations dashboards.</p>
+      <ul class="badges">
+        <li>Python</li><li>Plotly</li><li>Streamlit</li><li>Render</li>
+      </ul>
+      <div class="gallery-grid">
+        <img src="assets/EDA.jpg" alt="EDA BTC" onclick="expandImage(this)">
+      </div>
+    </div>
+
+    <div class="card project">
+      <h3>Map Visualization with Streamlit + Folium</h3>
+      <p>Interactive maps highlighting locations of volunteer programs and campsites. Each marker opens external info.</p>
+      <ul class="badges">
+        <li>Python</li><li>Folium</li><li>PostgreSQL</li>
+      </ul>
+      <div class="gallery-grid">
+        <img src="assets/map.jpg" alt="Volunteering map" onclick="expandImage(this)">
+      </div>
+    </div>
+
+    <div class="card project">
+      <h3>Battleship with Python</h3>
+      <p>Console game to practice core Python: control flow, functions, I/O; roadmap to OOP & GUI next.</p>
+      <ul class="badges">
+        <li>Python</li>
+      </ul>
+      <div class="gallery-grid">
+        <img src="assets/hundirLaFlota.png" alt="Battleship console" onclick="expandImage(this)">
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="assets/SEVEN-volando-transformed.png" alt="Project Image 1" onclick="expandImage(this)">
+      <img src="assets/Nico vs NZ.png" alt="Project Image 2" onclick="expandImage(this)">
+    </div>
+    <div id="lightbox" onclick="closeLightbox()" aria-hidden="true">
+      <img id="lightbox-img" src="" alt="Expanded"/>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
