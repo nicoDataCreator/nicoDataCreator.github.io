@@ -18,6 +18,10 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenContactDock }) => {
         <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
           {/* Status and Location Badges */}
           <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+            <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+              Portfolio
+            </span>
+            <span aria-hidden="true" className="text-slate-300 dark:text-slate-700">·</span>
             <span className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               {t.statusAvailable}

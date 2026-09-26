@@ -259,7 +259,7 @@ export interface Translations {
 export const translations: Record<Language, Translations> = {
   en: {
     nav: {
-      about: "About",
+      about: "Portfolio",
       actualidad: "Current Focus (Huboo)",
       career: "Professional Career",
       sports: "Pro Rugby & Leadership",
@@ -269,11 +269,11 @@ export const translations: Record<Language, Translations> = {
       getInTouch: "Get in Touch"
     },
     hero: {
-      statusAvailable: "Available for BDR & AE Roles",
+      statusAvailable: "Available for BDM & AE Roles",
       location: "Madrid, Spain & Remote",
       languages: "English · Italian · Spanish",
-      headline: "Where athletic grit, data engineering & consultative tech sales converge.",
-      subheadline: "After a decade competing in European professional rugby and driving high-velocity client acquisition in Rome and Madrid, I help technology companies build qualified enterprise pipeline and close deals with disciplined sales execution, Python/SQL data fluency, and trilingual communication.",
+      headline: "B2B Sales & Business Development Manager | Ex-Professional Athlete",
+      subheadline: "Specializing in pipeline development, and end-to-end deal execution. Fast-tracked at Huboo Technologies through consistent quota overperformance and data-driven sales strategies. Brings 10 years of elite sports discipline, resilience, and a hands-on mindset to revenue generation. Multilingual (EN/ES/IT), Madrid-based, and built to open high-value doors in fast-paced tech environments.",
       badgeAws: "AWS Cloud Quest (3rd Place)",
       badgeData: "Data Science & ETL Pipelines",
       badgeRugby: "10-Yr Pro Rugby Athletic Background",
@@ -291,23 +291,23 @@ export const translations: Record<Language, Translations> = {
       stat4Context: "Python & SQL ETL fluency"
     },
     actualidad: {
-      badge: "Current Focus · Huboo Technologies",
-      title: "Supercharging BDM Performance at Huboo with Custom-Built Software",
+      badge: "Huboo Technologies",
+      title: "Huboo Technologies · Internal Sales Software",
       subtitle: "B2B Fulfillment & Supply Chain Logistics Sales",
       company: "Huboo",
       role: "Business Development Manager (BDM)",
-      description: "As Business Development Manager at Huboo, I drive commercial growth and merchant acquisition across European e-commerce brands. To maximize deal velocity and eliminate operational bottlenecks, I engineered two dedicated internal applications that automate outbound targeting and streamline commercial proposal generation.",
-      whyBuiltTitle: "Why Custom Software as a BDM?",
-      whyBuiltText: "Standard CRM workflows often introduce friction during fast-paced merchant discovery and pricing calculations. By building custom tools tailored to Huboo's exact fulfillment parameters, I transformed multi-hour data collation into instant, high-conversion commercial execution.",
-      privacyBadge: "Confidential Data",
-      privacyNotice: "Live data protected with privacy blur (contains real merchant names, contact details, and sensitive fulfillment tariffs).",
-      privacyToggleOn: "Privacy Blur Active",
-      privacyToggleOff: "Privacy Blur Lifted",
-      clickToExpand: "Click image to inspect full screenshot in lightbox",
+      description: "Internal tools developed to streamline outbound prospecting and accelerate commercial proposal turnaround.",
+      whyBuiltTitle: "",
+      whyBuiltText: "",
+      privacyBadge: "",
+      privacyNotice: "",
+      privacyToggleOn: "",
+      privacyToggleOff: "",
+      clickToExpand: "Click image to inspect screenshot in lightbox",
       apps: [
         {
           id: "lista-outbound",
-          name: "Lista Outbound Hub",
+          name: "Lista Outbound",
           filename: "lista outbound.jpg",
           tag: "Outbound Lead Gen & ICP Scoring",
           badge: "Lead Intelligence App",
@@ -327,7 +327,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: "lista-propuestas",
-          name: "Lista Propuestas Suite",
+          name: "Lista Propuestas",
           filename: "lista propuestas.jpg",
           tag: "Deal Structuring & Tariff Engine",
           badge: "Commercial Proposal App",
@@ -352,7 +352,7 @@ export const translations: Record<Language, Translations> = {
       title: "Consultative Software Sales & Data Operations",
       description: "From high-ticket negotiations in Madrid to enterprise UX/UI software sales at Betterplace, my background merges relentless outbound discipline with data science capabilities.",
       playbookTag: "Interactive Methodology",
-      playbookTitle: "My End-to-End BDR & Account Executive Framework",
+      playbookTitle: "My End-to-End BDM & Account Executive Framework",
       playbookSubtitle: "Click through the stages to see how I combine analytical rigor with consultative persuasion.",
       stageLabel: "Stage",
       deliverablesLabel: "Key Deliverables:",
@@ -794,7 +794,7 @@ export const translations: Record<Language, Translations> = {
     contact: {
       badge: "Get in Touch",
       title: "Let's Discuss Pipeline, Sales Execution & Tech Opportunities",
-      description: "I am actively interviewing for BDR, SDR, and Account Executive roles in Madrid or fully remote. Reach out via email, phone, or LinkedIn.",
+      description: "I am actively interviewing for BDM and Account Executive roles in Madrid or fully remote. Reach out via email, phone, or LinkedIn.",
       emailLabel: "Primary Email",
       phoneLabel: "Mobile / WhatsApp",
       phoneType: "Call / WA",
@@ -803,12 +803,12 @@ export const translations: Record<Language, Translations> = {
       responseNote: "Response Time: Typically within 24 hours",
       availNote: "Availability: Immediate start for the right team",
       formTitle: "Send an Intro Note",
-      formSubtitle: "Have an open BDR/AE requisition, a partnership proposal, or want to talk cloud & data? Leave a note below.",
+      formSubtitle: "Have an open BDM/AE requisition, a partnership proposal, or want to talk cloud & data? Leave a note below.",
       nameLabel: "Your Name",
       namePlaceholder: "e.g. Elena Rossi",
       emailPlaceholder: "elena@company.com",
       subjectLabel: "Subject / Topic",
-      subjectOptions: ["BDR / AE Opportunity", "Software Sales Advisory", "Data & Cloud Discussion", "General Conversation"],
+      subjectOptions: ["BDM / AE Opportunity", "Software Sales Advisory", "Data & Cloud Discussion", "General Conversation"],
       messageLabel: "Message",
       messagePlaceholder: "Hi Nicolas, I saw your portfolio and would like to talk about an open Account Executive position on our team...",
       submitButton: "Send Intro Message",
@@ -823,7 +823,7 @@ export const translations: Record<Language, Translations> = {
       mailtoAlternative: "Send directly via Email App"
     },
     dock: {
-      availableText: "Available for BDR / AE Roles",
+      availableText: "Available for BDM / AE Roles",
       directTitle: "Direct Contact",
       copiedNotice: "Copied!",
       callWa: "Call / WA",
@@ -835,13 +835,13 @@ export const translations: Record<Language, Translations> = {
       closeLabel: "Close"
     },
     footer: {
-      tagline: "BDR & Account Executive · Software, Data & High-Performance Athletic Mindset",
+      tagline: "BDM & Account Executive · Software, Data & High-Performance Athletic Mindset",
       top: "Top"
     }
   },
   es: {
     nav: {
-      about: "Sobre Mí",
+      about: "Portfolio",
       actualidad: "Actualidad (Huboo)",
       career: "Vida Profesional",
       sports: "Rugby Pro & Liderazgo",
@@ -851,11 +851,11 @@ export const translations: Record<Language, Translations> = {
       getInTouch: "Contactar"
     },
     hero: {
-      statusAvailable: "Disponible para Roles BDR y AE",
+      statusAvailable: "Disponible para Roles BDM y AE",
       location: "Madrid, España y Remoto",
       languages: "Inglés · Italiano · Español",
-      headline: "Donde convergen la disciplina deportiva, el análisis de datos y la venta consultiva de software.",
-      subheadline: "Tras una década compitiendo en el rugby profesional europeo y liderando adquisición comercial en Roma y Madrid, ayudo a empresas tecnológicas a generar pipeline cualificado y cerrar acuerdos mediante ejecución comercial disciplinada, solvencia con Python/SQL y comunicación trilingüe.",
+      headline: "B2B Sales & Business Development Manager | Ex-Professional Athlete",
+      subheadline: "Specializing in pipeline development, and end-to-end deal execution. Fast-tracked at Huboo Technologies through consistent quota overperformance and data-driven sales strategies. Brings 10 years of elite sports discipline, resilience, and a hands-on mindset to revenue generation. Multilingual (EN/ES/IT), Madrid-based, and built to open high-value doors in fast-paced tech environments.",
       badgeAws: "AWS Cloud Quest (3er Puesto)",
       badgeData: "Ciencia de Datos y Pipelines ETL",
       badgeRugby: "10 Años de Deporte Profesional",
@@ -873,19 +873,19 @@ export const translations: Record<Language, Translations> = {
       stat4Context: "Dominio de Python y SQL ETL"
     },
     actualidad: {
-      badge: "Actualidad · Huboo Technologies",
-      title: "Maximizando el Rendimiento Comercial como BDM en Huboo con Software Propio",
+      badge: "Huboo Technologies",
+      title: "Huboo Technologies · Software Comercial Propio",
       subtitle: "Ventas de Fulfillment y Logística para E-commerce",
       company: "Huboo",
       role: "Business Development Manager (BDM)",
-      description: "Como Business Development Manager en Huboo, lidero la adquisición comercial y el cierre de acuerdos con marcas de comercio electrónico en Europa. Para acelerar el ciclo de venta y eliminar cuellos de botella operativos, he desarrollado 2 aplicaciones internas que automatizan la prospección outbound y agilizan la generación de propuestas comerciales.",
-      whyBuiltTitle: "¿Por qué crear software propio siendo BDM?",
-      whyBuiltText: "Los CRMs convencionales generan fricción y lentitud al calcular tarifas logísticas y cribar tiendas online. Al desarrollar herramientas diseñadas específicamente para los parámetros de fulfillment de Huboo, convertí horas de trabajo manual en una ejecución comercial instantánea y de alto impacto.",
-      privacyBadge: "Datos Confidenciales",
-      privacyNotice: "Información real protegida con filtro de privacidad (contiene datos sensibles de clientes, contactos reales y tarifas comerciales de fulfillment).",
-      privacyToggleOn: "Filtro de Privacidad Activo",
-      privacyToggleOff: "Filtro Desactivado",
-      clickToExpand: "Haz clic en la imagen para ampliar la captura en pantalla completa",
+      description: "Herramientas desarrolladas para optimizar la prospección outbound y acelerar la entrega de propuestas comerciales.",
+      whyBuiltTitle: "",
+      whyBuiltText: "",
+      privacyBadge: "",
+      privacyNotice: "",
+      privacyToggleOn: "",
+      privacyToggleOff: "",
+      clickToExpand: "Haz clic en la imagen para ampliar en pantalla completa",
       apps: [
         {
           id: "lista-outbound",
@@ -934,7 +934,7 @@ export const translations: Record<Language, Translations> = {
       title: "Venta Consultiva de Software y Operaciones de Datos",
       description: "Desde negociaciones inmobiliarias de alto valor en Madrid hasta venta de software SaaS y UX/UI en Betterplace, mi perfil combina prospección incansable con rigor analítico y científico.",
       playbookTag: "Metodología Interactiva",
-      playbookTitle: "Mi Metodología Integral como BDR y Account Executive",
+      playbookTitle: "Mi Metodología Integral como BDM y Account Executive",
       playbookSubtitle: "Haz clic en cada fase para ver cómo combino el análisis técnico con la persuasión consultiva.",
       stageLabel: "Fase",
       deliverablesLabel: "Entregables Clave:",
@@ -1376,7 +1376,7 @@ export const translations: Record<Language, Translations> = {
     contact: {
       badge: "Contacto",
       title: "Hablemos de Pipeline, Ejecución Comercial y Nuevos Desafíos",
-      description: "Disponible activamente para incorporarme como BDR, SDR o Account Executive en Madrid o en modalidad 100% remota.",
+      description: "Disponible activamente para incorporarme como BDM o Account Executive en Madrid o en modalidad 100% remota.",
       emailLabel: "Correo Principal",
       phoneLabel: "Móvil / WhatsApp",
       phoneType: "Llamar / WA",
@@ -1385,12 +1385,12 @@ export const translations: Record<Language, Translations> = {
       responseNote: "Tiempo de respuesta: Habitualmente en menos de 24 horas",
       availNote: "Disponibilidad: Incorporación inmediata para el proyecto adecuado",
       formTitle: "Envíame un Mensaje",
-      formSubtitle: "¿Tienes una vacante de BDR/AE, una propuesta comercial o quieres hablar de Cloud y datos? Déjame una nota aquí.",
+      formSubtitle: "¿Tienes una vacante de BDM/AE, una propuesta comercial o quieres hablar de Cloud y datos? Déjame una nota aquí.",
       nameLabel: "Tu Nombre",
       namePlaceholder: "ej. Elena Rossi",
       emailPlaceholder: "elena@empresa.com",
       subjectLabel: "Asunto / Motivo",
-      subjectOptions: ["Oportunidad BDR / AE", "Asesoría Comercial de Software", "Charla sobre Cloud y Datos", "Conversación General"],
+      subjectOptions: ["Oportunidad BDM / AE", "Asesoría Comercial de Software", "Charla sobre Cloud y Datos", "Conversación General"],
       messageLabel: "Mensaje",
       messagePlaceholder: "Hola Nicolás, he visto tu portfolio y me gustaría comentar una posición abierta de Account Executive en nuestro equipo...",
       submitButton: "Enviar Mensaje",
@@ -1405,7 +1405,7 @@ export const translations: Record<Language, Translations> = {
       mailtoAlternative: "Enviar directamente vía tu cliente de correo"
     },
     dock: {
-      availableText: "Disponible para Roles BDR / AE",
+      availableText: "Disponible para Roles BDM / AE",
       directTitle: "Contacto Directo",
       copiedNotice: "¡Copiado!",
       callWa: "Llamar / WA",
@@ -1417,7 +1417,7 @@ export const translations: Record<Language, Translations> = {
       closeLabel: "Cerrar"
     },
     footer: {
-      tagline: "BDR & Account Executive · Software, Datos y Disciplina Deportiva de Élite",
+      tagline: "BDM & Account Executive · Software, Datos y Disciplina Deportiva de Élite",
       top: "Subir"
     }
   }

@@ -16,7 +16,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    subject: t.subjectOptions[0] || 'Oportunidad BDR / AE',
+    subject: t.subjectOptions[0] || 'Oportunidad BDM / AE',
     message: ''
   });
 
@@ -41,7 +41,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
     setFormState({
       name: '',
       email: '',
-      subject: t.subjectOptions[0] || 'Oportunidad BDR / AE',
+      subject: t.subjectOptions[0] || 'Oportunidad BDM / AE',
       message: ''
     });
   };

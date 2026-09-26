@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Language, translations } from '../data/translations';
-import { Maximize2, Shield, CheckCircle2, Building2, TrendingUp, Layers, FileSpreadsheet } from 'lucide-react';
+import { Maximize2, CheckCircle2, Building2, TrendingUp, Layers, FileSpreadsheet } from 'lucide-react';
 
 interface ActualidadSectionProps {
   lang: Language;
@@ -10,17 +10,13 @@ interface ActualidadSectionProps {
 const getCandidateUrls = (filename: string): string[] => {
   const clean = filename.trim();
   const commaVer = clean.replace('.jpg', ',jpg');
-  const dotVer = clean.replace(',jpg', '.jpg');
   return [
-    `/assets/${clean}`,
-    `/assets/${commaVer}`,
-    `/assets/${dotVer}`,
-    `/assets/${encodeURIComponent(clean)}`,
-    `/assets/${encodeURIComponent(commaVer)}`,
-    `/assets/${encodeURIComponent(dotVer)}`,
     `/${clean}`,
+    `/assets/${clean}`,
+    `/${encodeURIComponent(clean)}`,
+    `/assets/${encodeURIComponent(clean)}`,
     `/${commaVer}`,
-    `/${dotVer}`,
+    `/assets/${commaVer}`,
   ];
 };
 
@@ -75,7 +71,7 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
 
         {/* The 2 Apps Grid */}
         <div className="space-y-12">
-          {t.apps.map((app, index) => {
+          {t.apps.map((app) => {
             const isOutbound = app.id === 'lista-outbound';
             const candidates = getCandidateUrls(app.filename);
             const currentCandidateIndex = candidateIndices[app.id] || 0;
@@ -89,8 +85,8 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
                 className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8">
-                  {/* Left Column: Visual Mockup / Real Screenshot with Privacy Blur */}
-                  <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
+                  {/* Left Column: Real Screenshot (Clean, click to expand in lightbox) */}
+                  <div className="lg:col-span-6 flex flex-col justify-between space-y-3">
                     <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pb-2 border-b border-slate-100 dark:border-slate-800">
                       <div className="flex items-center gap-2">
                         <FileSpreadsheet className="w-4 h-4 text-blue-500" />
@@ -98,45 +94,40 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
                           {app.filename}
                         </span>
                       </div>
-                      <span className="text-[11px] flex items-center gap-1 text-slate-400">
-                        <Shield className="w-3 h-3 text-emerald-500" />
-                        <span>{t.privacyBadge}</span>
+                      <span className="text-[11px] text-slate-400">
+                        {app.badge}
                       </span>
                     </div>
 
-                    {/* Screenshot Container with Click to Lightbox & Blur */}
+                    {/* Screenshot Container with Click to Lightbox */}
                     <div
                       onClick={() => onOpenLightbox(activeImageUrl, app.name, app.description)}
                       className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-inner flex items-center justify-center min-h-[260px] sm:min-h-[300px]"
                     >
-                      {/* Image tag with real file load attempt */}
                       {!isError ? (
                         <img
                           src={currentCandidateUrl}
                           alt={app.name}
                           onLoad={() => handleImageLoad(app.id, currentCandidateUrl)}
                           onError={() => handleImageError(app.id, app.filename)}
-                          className="w-full h-auto max-h-[340px] object-cover transition-all duration-300 group-hover:scale-102 blur-[5px] select-none"
+                          className="w-full h-auto max-h-[380px] object-cover transition-all duration-300 group-hover:scale-101 select-none"
                         />
                       ) : (
-                        /* High-Fidelity Blurred UI Simulation Fallback (shown until user uploads the file or if browser fails) */
                         <div
-                          className="w-full h-full p-4 sm:p-5 bg-slate-900 text-slate-200 font-mono text-[11px] select-none transition-all duration-300 blur-[5px] opacity-85"
+                          className="w-full h-full p-4 sm:p-5 bg-slate-900 text-slate-200 font-mono text-[11px] select-none transition-all duration-300 opacity-90"
                         >
-                          {/* Simulated Huboo Tool Bar */}
                           <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs">
                             <div className="flex items-center gap-2">
                               <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
                               <span className="font-bold text-white tracking-wide">
-                                Huboo BDM Suite · {app.name}
+                                Huboo · {app.name}
                               </span>
                             </div>
                             <span className="text-emerald-400 text-[10px] bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
-                              LIVE PIPELINE
+                              ACTIVE
                             </span>
                           </div>
 
-                          {/* Simulated Table Data */}
                           {isOutbound ? (
                             <div className="space-y-2">
                               <div className="grid grid-cols-4 gap-2 text-[10px] text-slate-400 pb-1 border-b border-slate-800 font-semibold">
@@ -149,71 +140,39 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
                                 <div>Nordic Apparel Co.</div>
                                 <div className="text-emerald-400 font-semibold">8,450 / mo</div>
                                 <div>Shopify Plus</div>
-                                <div className="text-blue-400">Decision Maker Reached</div>
+                                <div className="text-blue-400">Reached</div>
                               </div>
                               <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
                                 <div>VitaCare Health SL</div>
                                 <div className="text-emerald-400 font-semibold">14,200 / mo</div>
                                 <div>WooCommerce</div>
-                                <div className="text-amber-400">Discovery Completed</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
-                                <div>Solana Tech Gadgets</div>
-                                <div className="text-emerald-400 font-semibold">5,100 / mo</div>
-                                <div>Magento 2</div>
-                                <div className="text-purple-400">Demo Scheduled</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 text-slate-300">
-                                <div>Iberian Gourmet Goods</div>
-                                <div className="text-emerald-400 font-semibold">18,900 / mo</div>
-                                <div>Custom API</div>
-                                <div className="text-emerald-400">Quote In Review</div>
+                                <div className="text-amber-400">Discovery</div>
                               </div>
                             </div>
                           ) : (
                             <div className="space-y-2">
                               <div className="grid grid-cols-4 gap-2 text-[10px] text-slate-400 pb-1 border-b border-slate-800 font-semibold">
-                                <div>PROPOSAL # / CLIENT</div>
+                                <div>PROPOSAL / CLIENT</div>
                                 <div>FULFILLMENT PLAN</div>
                                 <div>MARGIN %</div>
                                 <div>ACTION STATUS</div>
                               </div>
                               <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
                                 <div>PR-2024-089 · Brand A</div>
-                                <div>Multi-Hub EU (ES/DE)</div>
+                                <div>Multi-Hub EU</div>
                                 <div className="text-emerald-400 font-bold">28.4%</div>
-                                <div className="text-emerald-400">Sent · Awaiting Signature</div>
+                                <div className="text-emerald-400">Sent</div>
                               </div>
                               <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
                                 <div>PR-2024-094 · Brand B</div>
-                                <div>UK Mainland Standard</div>
+                                <div>UK Standard</div>
                                 <div className="text-emerald-400 font-bold">31.2%</div>
-                                <div className="text-blue-400">Tariff Reviewing</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
-                                <div>PR-2024-102 · Brand C</div>
-                                <div>Cross-Border Parcels</div>
-                                <div className="text-emerald-400 font-bold">26.8%</div>
-                                <div className="text-amber-400">Negotiating Volume Tier</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 text-slate-300">
-                                <div>PR-2024-115 · Brand D</div>
-                                <div>Pallet Ingestion + Pick</div>
-                                <div className="text-emerald-400 font-bold">29.5%</div>
-                                <div className="text-purple-400">Contract Ready</div>
+                                <div className="text-blue-400">Review</div>
                               </div>
                             </div>
                           )}
                         </div>
                       )}
-
-                      {/* Watermark / Privacy Badge Overlay */}
-                      <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center p-4">
-                        <div className="px-3 py-1.5 rounded-lg bg-black/75 backdrop-blur-md border border-white/10 text-white text-[11px] font-semibold flex items-center gap-2 shadow-lg">
-                          <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                          <span>{t.privacyNotice}</span>
-                        </div>
-                      </div>
 
                       {/* Hover Expand Trigger */}
                       <div className="absolute top-3 right-3 p-2 rounded-lg bg-black/70 text-white backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity">
@@ -221,16 +180,16 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+                    <div className="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
                       <span>{t.clickToExpand}</span>
-                      <span className="font-mono text-blue-600 dark:text-blue-400">
-                        {isError ? (lang === 'es' ? 'Vista previa simulada (archivo pendiente de subir)' : 'Simulated preview (pending upload)') : (lang === 'es' ? 'Captura real detectada' : 'Real screenshot detected')}
+                      <span className="text-slate-400 font-mono text-[10px]">
+                        {app.tag}
                       </span>
                     </div>
                   </div>
 
-                  {/* Right Column: Problem, Capabilities & Measurable Impact */}
-                  <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+                  {/* Right Column: Key Details, Capabilities & Measurable Impact */}
+                  <div className="lg:col-span-6 flex flex-col justify-between space-y-5">
                     <div>
                       {/* Tags */}
                       <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -252,7 +211,7 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
                       </p>
                     </div>
 
-                    {/* Problem Solved */}
+                    {/* Operational Bottleneck Resolved */}
                     <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800">
                       <div className="text-xs font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-1.5">
                         <Layers className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />

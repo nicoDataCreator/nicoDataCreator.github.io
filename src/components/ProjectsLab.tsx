@@ -43,7 +43,7 @@ export const ProjectsLab: React.FC<ProjectsLabProps> = ({ lang, onOpenLightbox }
         setDetectedIntent({
           intent: "sales.schedule_meeting",
           confidence: "99.1%",
-          reply: "Te conecto directamente con Nicolás Coronel. Trabaja en zona horaria CET (Madrid) con disponibilidad inmediata para entrevistas BDR/AE."
+          reply: "Te conecto directamente con Nicolás Coronel. Trabaja en zona horaria CET (Madrid) con disponibilidad inmediata para entrevistas BDM/AE."
         });
       } else {
         setDetectedIntent({
@@ -63,7 +63,7 @@ export const ProjectsLab: React.FC<ProjectsLabProps> = ({ lang, onOpenLightbox }
         setDetectedIntent({
           intent: "sales.schedule_meeting",
           confidence: "99.1%",
-          reply: "I can connect you directly with Nicolas Coronel. He operates in Madrid (CET) with open availability for BDR/AE intro calls."
+          reply: "I can connect you directly with Nicolas Coronel. He operates in Madrid (CET) with open availability for BDM/AE intro calls."
         });
       } else {
         setDetectedIntent({

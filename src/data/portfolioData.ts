@@ -2,9 +2,9 @@ import { JobExperience, RugbyMilestone, ProjectItem, EducationItem, CuriosityIte
 
 export const PERSONAL_INFO = {
   name: "Nicolas Coronel",
-  title: "BDR & Account Executive | Software & Data Enthusiast",
+  title: "B2B Sales & Business Development Manager | Ex-Professional Athlete",
   location: "Madrid, Spain",
-  summary: "Former professional rugby player turned high-velocity Business Development Representative & Account Executive. I operate at the intersection of consultative software sales, data engineering (Python, SQL, ETL), and cloud tech. Trilingual in English, Italian, and Spanish, I bring world-class athletic discipline, tactical preparation, and resilience to scaling enterprise pipelines and closing complex deals.",
+  summary: "Specializing in pipeline development, and end-to-end deal execution. Fast-tracked at Huboo Technologies through consistent quota overperformance and data-driven sales strategies. Brings 10 years of elite sports discipline, resilience, and a hands-on mindset to revenue generation. Multilingual (EN/ES/IT), Madrid-based, and built to open high-value doors in fast-paced tech environments.",
   email: "nico.coronel@protonmail.com",
   phone: "+34 621 053 129",
   linkedin: "https://linkedin.com/in/nicolasjuancoronel",
