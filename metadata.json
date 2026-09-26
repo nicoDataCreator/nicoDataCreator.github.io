@@ -1,0 +1,8 @@
+{
+  "name": "Nicolas Coronel - Portfolio",
+  "description": "Portfolio of Nicolas Coronel - BDR & Account Executive focused on software, data and partnerships.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
