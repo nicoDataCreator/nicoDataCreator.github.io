@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ScrollProgressIndicator } from './components/ScrollProgressIndicator';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ActualidadSection } from './components/ActualidadSection';
@@ -33,6 +34,41 @@ export const App: React.FC = () => {
     }
     return 'en';
   });
+
+  // Active section tracking for progress indicator and nav synchronization
+  const [activeSection, setActiveSection] = useState<string>('about');
+
+  useEffect(() => {
+    const sections = ['about', 'actualidad', 'career', 'sports', 'projects', 'education', 'contact'];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140;
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+
+      if (window.scrollY + windowHeight >= documentHeight - 80) {
+        setActiveSection('contact');
+        return;
+      }
+
+      let current = sections[0];
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            current = sectionId;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Lightbox state
   const [lightbox, setLightbox] = useState<{
@@ -90,6 +126,13 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
+      {/* Smooth Scroll Progress Indicator pinned to the top of the viewport */}
+      <ScrollProgressIndicator
+        lang={lang}
+        activeSection={activeSection}
+        onSectionClick={(sectionId) => setActiveSection(sectionId)}
+      />
+
       {/* 3-Zone Navigation Header with 1-Click Language & Sun/Moon Theme Switcher */}
       <Navbar
         darkMode={darkMode}
@@ -97,6 +140,7 @@ export const App: React.FC = () => {
         lang={lang}
         onToggleLang={handleToggleLang}
         onOpenContactDock={() => setContactDockOpen(true)}
+        activeSection={activeSection}
       />
 
       {/* Main Sections */}

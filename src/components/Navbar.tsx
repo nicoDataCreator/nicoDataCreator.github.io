@@ -8,6 +8,7 @@ interface NavbarProps {
   lang: Language;
   onToggleLang: () => void;
   onOpenContactDock: () => void;
+  activeSection?: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   lang,
   onToggleLang,
   onOpenContactDock,
+  activeSection,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,12 +32,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   const navLinks = [
-    { label: t.about, href: '#about' },
-    { label: t.actualidad, href: '#actualidad' },
-    { label: t.career, href: '#career' },
-    { label: t.sports, href: '#sports' },
-    { label: t.projects, href: '#projects' },
-    { label: t.education, href: '#education' },
+    { label: t.about, href: '#about', id: 'about' },
+    { label: t.actualidad, href: '#actualidad', id: 'actualidad' },
+    { label: t.career, href: '#career', id: 'career' },
+    { label: t.sports, href: '#sports', id: 'sports' },
+    { label: t.projects, href: '#projects', id: 'projects' },
+    { label: t.education, href: '#education', id: 'education' },
   ];
 
   return (
@@ -64,16 +66,23 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         {/* Desktop nav links */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="hover:text-slate-950 dark:hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-200 whitespace-nowrap"
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative py-1 transition-colors whitespace-nowrap ${
+                  isActive
+                    ? 'text-blue-600 dark:text-blue-400 font-semibold after:w-full'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white after:w-0'
+                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-200`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Action Controls: 1-Click Language Switcher, Sun/Moon Theme, and CTA */}
@@ -127,16 +136,23 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden px-4 pt-2 pb-6 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-xl space-y-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                  isActive
+                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
+                    : 'font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
 
           <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
             <button
