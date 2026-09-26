@@ -228,9 +228,15 @@ export interface Translations {
     messageLabel: string;
     messagePlaceholder: string;
     submitButton: string;
+    submittingButton: string;
+    directNotice: string;
     successTitle: string;
     successMessage: string;
     sendAnother: string;
+    errorTitle: string;
+    errorMessage: string;
+    retryButton: string;
+    mailtoAlternative: string;
   };
   dock: {
     availableText: string;
@@ -806,9 +812,15 @@ export const translations: Record<Language, Translations> = {
       messageLabel: "Message",
       messagePlaceholder: "Hi Nicolas, I saw your portfolio and would like to talk about an open Account Executive position on our team...",
       submitButton: "Send Intro Message",
+      submittingButton: "Sending Message...",
+      directNotice: "Direct delivery to nico.coronel@protonmail.com",
       successTitle: "Message Sent Successfully!",
-      successMessage: "Thank you for reaching out. Nicolas will respond to your email shortly.",
-      sendAnother: "Send another note"
+      successMessage: "Thank you for reaching out. Your message has been sent directly to nico.coronel@protonmail.com. Nicolas will respond to your email shortly.",
+      sendAnother: "Send another note",
+      errorTitle: "Submission Inconvenience",
+      errorMessage: "Could not connect to the automatic dispatch service. You can send your note directly using your email client.",
+      retryButton: "Retry Submission",
+      mailtoAlternative: "Send directly via Email App"
     },
     dock: {
       availableText: "Available for BDR / AE Roles",
@@ -1382,9 +1394,15 @@ export const translations: Record<Language, Translations> = {
       messageLabel: "Mensaje",
       messagePlaceholder: "Hola Nicolás, he visto tu portfolio y me gustaría comentar una posición abierta de Account Executive en nuestro equipo...",
       submitButton: "Enviar Mensaje",
+      submittingButton: "Enviando mensaje...",
+      directNotice: "Envío directo a nico.coronel@protonmail.com",
       successTitle: "¡Mensaje Enviado con Éxito!",
-      successMessage: "Gracias por contactar. Nicolás te responderá a tu correo en breve.",
-      sendAnother: "Enviar otro mensaje"
+      successMessage: "Gracias por contactar. Tu mensaje ha sido transmitido directamente a nico.coronel@protonmail.com. Nicolás te responderá a tu correo en breve.",
+      sendAnother: "Enviar otro mensaje",
+      errorTitle: "Incidencia en el envío automático",
+      errorMessage: "No se pudo conectar con el servidor de entrega automática. Puedes enviar tu mensaje directamente desde tu aplicación de correo habitual.",
+      retryButton: "Reintentar Envío",
+      mailtoAlternative: "Enviar directamente vía tu cliente de correo"
     },
     dock: {
       availableText: "Disponible para Roles BDR / AE",
