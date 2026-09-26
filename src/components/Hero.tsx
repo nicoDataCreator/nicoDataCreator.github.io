@@ -94,29 +94,35 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenContactDock }) => {
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-blue-600/20 to-emerald-500/20 blur-xl opacity-70"></div>
 
             <div className="relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 p-4 shadow-xl">
-              <div className="relative overflow-hidden rounded-xl aspect-square bg-slate-100 dark:bg-slate-800 mb-4">
+              {/* Profile Photo as interactive link directly to #actualidad */}
+              <a
+                href="#actualidad"
+                title={lang === 'es' ? 'Ver sección de Actualidad en Huboo' : 'View Current Focus at Huboo'}
+                aria-label={lang === 'es' ? 'Ver sección de Actualidad en Huboo' : 'View Current Focus at Huboo'}
+                className="group relative block overflow-hidden rounded-xl aspect-square bg-slate-100 dark:bg-slate-800 cursor-pointer shadow-inner"
+              >
                 <img
                   src={PERSONAL_INFO.avatarUrl}
-                  alt="Nicolas Coronel"
-                  className="w-full h-full object-cover object-center"
+                  alt="Nicolas Coronel - BDM & Account Executive"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute bottom-3 left-3 right-3 bg-slate-950/85 backdrop-blur-md rounded-lg p-2.5 text-white border border-white/10 shadow-lg">
-                  <div className="text-xs font-semibold">Nicolas Coronel</div>
-                  <div className="text-[11px] text-slate-300 leading-tight">
-                    {t.profileRole}
+                
+                {/* Subtle hover overlay prompt */}
+                <div className="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/25 transition-colors flex items-end justify-center p-3">
+                  <div className="px-3 py-1.5 rounded-lg bg-slate-950/85 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 opacity-90 group-hover:opacity-100 shadow-lg border border-white/10 group-hover:scale-105 transition-all">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>{lang === 'es' ? 'Ver Actualidad (Huboo) ↓' : 'View Current Focus (Huboo) ↓'}</span>
                   </div>
                 </div>
-              </div>
+              </a>
 
-              {/* Fast Stats Row */}
-              <div className="grid grid-cols-2 gap-2 text-center pt-1 border-t border-slate-100 dark:border-slate-800">
-                <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                  <div className="text-xl font-bold text-blue-600 dark:text-blue-400 font-mono tabular-nums">10+ Yrs</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">{t.stat1Label}</div>
+              {/* Title and role directly under profile photo: BDM & Account Executive · Ex Atleta Profesional */}
+              <div className="pt-3 pb-1 text-center">
+                <div className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
+                  Nicolas Coronel
                 </div>
-                <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                  <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400 font-mono tabular-nums">3</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">{t.stat2Label}</div>
+                <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 mt-1">
+                  BDM &amp; Account Executive · Ex Atleta Profesional
                 </div>
               </div>
             </div>

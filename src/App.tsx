@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { ActualidadSection } from './components/ActualidadSection';
 import { ProfessionalCareer } from './components/ProfessionalCareer';
 import { SportsCareer } from './components/SportsCareer';
 import { ProjectsLab } from './components/ProjectsLab';
@@ -104,6 +105,12 @@ export const App: React.FC = () => {
         <Hero
           lang={lang}
           onOpenContactDock={() => setContactDockOpen(true)}
+        />
+
+        {/* Current Focus: Huboo BDM & Custom-Built Outbound & Proposal Apps */}
+        <ActualidadSection
+          lang={lang}
+          onOpenLightbox={handleOpenLightbox}
         />
 
         {/* Section 1: Professional Career / Vida Profesional */}

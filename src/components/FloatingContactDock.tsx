@@ -138,6 +138,7 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
               {t.jumpTitle}
             </div>
             {[
+              { label: navT.actualidad, href: '#actualidad' },
               { label: navT.career, href: '#career' },
               { label: navT.sports, href: '#sports' },
               { label: navT.projects, href: '#projects' },

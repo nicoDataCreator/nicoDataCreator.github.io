@@ -31,6 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks = [
     { label: t.about, href: '#about' },
+    { label: t.actualidad, href: '#actualidad' },
     { label: t.career, href: '#career' },
     { label: t.sports, href: '#sports' },
     { label: t.projects, href: '#projects' },
@@ -46,14 +47,19 @@ export const Navbar: React.FC<NavbarProps> = ({
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Wordmark */}
+        {/* Wordmark with Favicon */}
         <a
           href="#about"
           className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap flex items-center gap-2"
         >
+          <img
+            src="/favicon.ico"
+            alt="NC Favicon"
+            className="w-5 h-5 rounded-xs object-contain shrink-0"
+          />
           <span>Nicolas Coronel</span>
           <span className="hidden sm:inline-block text-[11px] font-medium font-mono text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-slate-800 px-1.5 py-0.5 rounded">
-            BDR / AE
+            BDM / AE
           </span>
         </a>
 

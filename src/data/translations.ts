@@ -1,8 +1,38 @@
 export type Language = 'en' | 'es';
 
+export interface ActualidadApp {
+  id: string;
+  name: string;
+  filename: string;
+  tag: string;
+  badge: string;
+  description: string;
+  problemSolved: string;
+  impact: string[];
+  features: string[];
+}
+
+export interface ActualidadSectionData {
+  badge: string;
+  title: string;
+  subtitle: string;
+  company: string;
+  role: string;
+  description: string;
+  whyBuiltTitle: string;
+  whyBuiltText: string;
+  privacyBadge: string;
+  privacyNotice: string;
+  privacyToggleOn: string;
+  privacyToggleOff: string;
+  clickToExpand: string;
+  apps: ActualidadApp[];
+}
+
 export interface Translations {
   nav: {
     about: string;
+    actualidad: string;
     career: string;
     sports: string;
     projects: string;
@@ -32,6 +62,7 @@ export interface Translations {
     stat4Label: string;
     stat4Context: string;
   };
+  actualidad: ActualidadSectionData;
   career: {
     badge: string;
     title: string;
@@ -223,6 +254,7 @@ export const translations: Record<Language, Translations> = {
   en: {
     nav: {
       about: "About",
+      actualidad: "Current Focus (Huboo)",
       career: "Professional Career",
       sports: "Pro Rugby & Leadership",
       projects: "Projects & Systems",
@@ -242,7 +274,7 @@ export const translations: Record<Language, Translations> = {
       ctaContact: "Contact Nicolas",
       ctaCareer: "Explore Career History",
       ctaRugby: "Rugby & Leadership →",
-      profileRole: "BDR & Account Executive · Ex Pro Rugby Athlete",
+      profileRole: "BDM & Account Executive · Former Pro Athlete",
       stat1Label: "Pro Athletic Discipline",
       stat1Context: "European Elite Rugby & Sevens",
       stat2Label: "Fluent Languages",
@@ -251,6 +283,63 @@ export const translations: Record<Language, Translations> = {
       stat3Context: "Database & Cloud Architecture",
       stat4Label: "Data-Driven Deal Velocity",
       stat4Context: "Python & SQL ETL fluency"
+    },
+    actualidad: {
+      badge: "Current Focus · Huboo Technologies",
+      title: "Supercharging BDM Performance at Huboo with Custom-Built Software",
+      subtitle: "B2B Fulfillment & Supply Chain Logistics Sales",
+      company: "Huboo",
+      role: "Business Development Manager (BDM)",
+      description: "As Business Development Manager at Huboo, I drive commercial growth and merchant acquisition across European e-commerce brands. To maximize deal velocity and eliminate operational bottlenecks, I engineered two dedicated internal applications that automate outbound targeting and streamline commercial proposal generation.",
+      whyBuiltTitle: "Why Custom Software as a BDM?",
+      whyBuiltText: "Standard CRM workflows often introduce friction during fast-paced merchant discovery and pricing calculations. By building custom tools tailored to Huboo's exact fulfillment parameters, I transformed multi-hour data collation into instant, high-conversion commercial execution.",
+      privacyBadge: "Confidential Data",
+      privacyNotice: "Live data protected with privacy blur (contains real merchant names, contact details, and sensitive fulfillment tariffs).",
+      privacyToggleOn: "Privacy Blur Active",
+      privacyToggleOff: "Privacy Blur Lifted",
+      clickToExpand: "Click image to inspect full screenshot in lightbox",
+      apps: [
+        {
+          id: "lista-outbound",
+          name: "Lista Outbound Hub",
+          filename: "lista outbound.jpg",
+          tag: "Outbound Lead Gen & ICP Scoring",
+          badge: "Lead Intelligence App",
+          description: "Internal prospecting dashboard developed to identify, qualify, and organize high-potential e-commerce merchants ready for Huboo's multi-hub European fulfillment network.",
+          problemSolved: "Manual prospecting on LinkedIn and web stores was slow, fragmented, and failed to filter stores by estimated monthly order volume (GMV/orders).",
+          features: [
+            "Algorithmic ICP segmentation based on e-commerce catalog size & shipping velocity",
+            "Multi-threaded contact directory with verified decision-maker touchpoints",
+            "Automated cadence scheduling and live outbound status tracking",
+            "Direct export and hygiene synchronization with core sales tools"
+          ],
+          impact: [
+            "3x increase in qualified weekly outbound touches",
+            "Zero manual CRM data re-entry friction",
+            "Higher meeting conversion from hyper-personalized value hooks"
+          ]
+        },
+        {
+          id: "lista-propuestas",
+          name: "Lista Propuestas Suite",
+          filename: "lista propuestas.jpg",
+          tag: "Deal Structuring & Tariff Engine",
+          badge: "Commercial Proposal App",
+          description: "Dedicated proposal generator and quote tracking platform that models custom storage, pick & pack fees, carrier rates, and contractual margins in seconds.",
+          problemSolved: "Fulfillment pricing has complex variables (SKU dimensions, weight, carton rules, international courier tariffs) that typically take 24-48 hours to assemble into a formal commercial quote.",
+          features: [
+            "Dynamic logistics rate calculator across UK & EU fulfillment centers",
+            "Automated margin preservation and tiered volume discount logic",
+            "Centralized deal pipeline tracking active quotes, negotiations, and closing stages",
+            "Instant PDF / commercial sheet output ready for merchant presentation"
+          ],
+          impact: [
+            "Proposal turnaround reduced from 48h to under 15 minutes",
+            "100% margin accuracy with built-in guardrails",
+            "Higher closing win-rate through transparent, instant pricing responses"
+          ]
+        }
+      ]
     },
     career: {
       badge: "Professional Trajectory",
@@ -741,6 +830,7 @@ export const translations: Record<Language, Translations> = {
   es: {
     nav: {
       about: "Sobre Mí",
+      actualidad: "Actualidad (Huboo)",
       career: "Vida Profesional",
       sports: "Rugby Pro & Liderazgo",
       projects: "Proyectos & Sistemas",
@@ -760,7 +850,7 @@ export const translations: Record<Language, Translations> = {
       ctaContact: "Contactar a Nicolás",
       ctaCareer: "Ver Trayectoria Profesional",
       ctaRugby: "Rugby y Liderazgo →",
-      profileRole: "BDR & Account Executive · Ex Atleta Profesional",
+      profileRole: "BDM & Account Executive · Ex Atleta Profesional",
       stat1Label: "Años de Deporte Profesional",
       stat1Context: "Rugby de Élite Europeo y Seven",
       stat2Label: "Idiomas Fluidos",
@@ -769,6 +859,63 @@ export const translations: Record<Language, Translations> = {
       stat3Context: "Bases de datos y arquitectura Cloud",
       stat4Label: "Ventas Basadas en Datos",
       stat4Context: "Dominio de Python y SQL ETL"
+    },
+    actualidad: {
+      badge: "Actualidad · Huboo Technologies",
+      title: "Maximizando el Rendimiento Comercial como BDM en Huboo con Software Propio",
+      subtitle: "Ventas de Fulfillment y Logística para E-commerce",
+      company: "Huboo",
+      role: "Business Development Manager (BDM)",
+      description: "Como Business Development Manager en Huboo, lidero la adquisición comercial y el cierre de acuerdos con marcas de comercio electrónico en Europa. Para acelerar el ciclo de venta y eliminar cuellos de botella operativos, he desarrollado 2 aplicaciones internas que automatizan la prospección outbound y agilizan la generación de propuestas comerciales.",
+      whyBuiltTitle: "¿Por qué crear software propio siendo BDM?",
+      whyBuiltText: "Los CRMs convencionales generan fricción y lentitud al calcular tarifas logísticas y cribar tiendas online. Al desarrollar herramientas diseñadas específicamente para los parámetros de fulfillment de Huboo, convertí horas de trabajo manual en una ejecución comercial instantánea y de alto impacto.",
+      privacyBadge: "Datos Confidenciales",
+      privacyNotice: "Información real protegida con filtro de privacidad (contiene datos sensibles de clientes, contactos reales y tarifas comerciales de fulfillment).",
+      privacyToggleOn: "Filtro de Privacidad Activo",
+      privacyToggleOff: "Filtro Desactivado",
+      clickToExpand: "Haz clic en la imagen para ampliar la captura en pantalla completa",
+      apps: [
+        {
+          id: "lista-outbound",
+          name: "Lista Outbound",
+          filename: "lista outbound.jpg",
+          tag: "Prospección Outbound e Inteligencia de Leads",
+          badge: "App de Prospección",
+          description: "Panel de prospección interna diseñado para identificar, cualificar y organizar marcas de e-commerce con alto potencial para la red de fulfillment europeo de Huboo.",
+          problemSolved: "La prospección manual en LinkedIn y webs requería demasiado tiempo y carecía de filtrado rápido por volumen mensual estimado de pedidos.",
+          features: [
+            "Segmentación algorítmica de ICP por catálogo de productos y volumen de envíos",
+            "Directorio de contactos clave con decisores verificados de e-commerce",
+            "Programación de cadencias y seguimiento del estado de cada contacto en tiempo real",
+            "Sincronización ágil sin fricción de datos manuales hacia el CRM"
+          ],
+          impact: [
+            "Multiplicación x3 de contactos outbound cualificados semanales",
+            "Eliminación total del error humano en registro de leads",
+            "Mayor tasa de reuniones conseguidas gracias a ganchos de valor a medida"
+          ]
+        },
+        {
+          id: "lista-propuestas",
+          name: "Lista Propuestas",
+          filename: "lista propuestas.jpg",
+          tag: "Generador de Tarifas y Cierre de Acuerdos",
+          badge: "App de Propuestas",
+          description: "Suite interna para calcular tarifas de almacenaje, picking, paquetería y márgenes comerciales, permitiendo presentar ofertas a medida en minutos.",
+          problemSolved: "Las tarifas de logística involucran múltiples variables (peso, dimensiones, destinos de envío, mensajerías) que solían demorar entre 24 y 48 horas en redactarse.",
+          features: [
+            "Calculadora dinámica de costes logísticos en centros de Reino Unido y Europa",
+            "Control automático de margen comercial y descuentos por volumen de envíos",
+            "Pipeline centralizado para monitorizar propuestas enviadas, dudas y cierres",
+            "Generación inmediata de ofertas claras y profesionales para el cliente"
+          ],
+          impact: [
+            "Tiempo de entrega de propuesta reducido de 48h a menos de 15 minutos",
+            "100% de precisión en márgenes sin errores de cálculo",
+            "Mayor tasa de cierre gracias a la inmediatez en la respuesta comercial"
+          ]
+        }
+      ]
     },
     career: {
       badge: "Trayectoria Profesional",
