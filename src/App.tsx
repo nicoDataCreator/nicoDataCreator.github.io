@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollProgressIndicator } from './components/ScrollProgressIndicator';
 import { Navbar } from './components/Navbar';
+import { FadeInSection } from './components/FadeInSection';
 import { Hero } from './components/Hero';
 import { ActualidadSection } from './components/ActualidadSection';
 import { ProfessionalCareer } from './components/ProfessionalCareer';
@@ -143,46 +144,60 @@ export const App: React.FC = () => {
         activeSection={activeSection}
       />
 
-      {/* Main Sections */}
+      {/* Main Sections with Fade-In Intersection Observer Animation */}
       <main>
         {/* Hero & Executive Summary */}
-        <Hero
-          lang={lang}
-          onOpenContactDock={() => setContactDockOpen(true)}
-        />
+        <FadeInSection>
+          <Hero
+            lang={lang}
+            onOpenContactDock={() => setContactDockOpen(true)}
+          />
+        </FadeInSection>
 
         {/* Current Focus: Huboo BDM & Custom-Built Outbound & Proposal Apps */}
-        <ActualidadSection
-          lang={lang}
-          onOpenLightbox={handleOpenLightbox}
-        />
+        <FadeInSection>
+          <ActualidadSection
+            lang={lang}
+            onOpenLightbox={handleOpenLightbox}
+          />
+        </FadeInSection>
 
         {/* Section 1: Professional Career / Vida Profesional */}
-        <ProfessionalCareer
-          lang={lang}
-        />
+        <FadeInSection>
+          <ProfessionalCareer
+            lang={lang}
+          />
+        </FadeInSection>
 
         {/* Section 2: Pro Sports & Athletic Leadership / Vida Pro/Deportiva */}
-        <SportsCareer
-          lang={lang}
-          onOpenLightbox={handleOpenLightbox}
-        />
+        <FadeInSection>
+          <SportsCareer
+            lang={lang}
+            onOpenLightbox={handleOpenLightbox}
+          />
+        </FadeInSection>
 
         {/* Section 3: Projects & Systems Lab / Proyectos con interactividad & metodología */}
-        <ProjectsLab
-          lang={lang}
-          onOpenLightbox={handleOpenLightbox}
-        />
+        <FadeInSection>
+          <ProjectsLab
+            lang={lang}
+            onOpenLightbox={handleOpenLightbox}
+          />
+        </FadeInSection>
 
         {/* Section 4: Education, Certifications & Curiosity Lab / Estudios & Curiosidades */}
-        <EducationCuriosities
-          lang={lang}
-        />
+        <FadeInSection>
+          <EducationCuriosities
+            lang={lang}
+          />
+        </FadeInSection>
 
         {/* Section 5: Dedicated Contact Section */}
-        <ContactSection
-          lang={lang}
-        />
+        <FadeInSection>
+          <ContactSection
+            lang={lang}
+          />
+        </FadeInSection>
       </main>
 
       {/* Editorial Footer */}

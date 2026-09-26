@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Language, translations } from '../data/translations';
-import { Eye, EyeOff, Maximize2, Shield, CheckCircle2, Sparkles, Building2, TrendingUp, Layers, FileSpreadsheet, ArrowUpRight } from 'lucide-react';
+import { Maximize2, Shield, CheckCircle2, Building2, TrendingUp, Layers, FileSpreadsheet } from 'lucide-react';
 
 interface ActualidadSectionProps {
   lang: Language;
@@ -29,7 +29,6 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
   onOpenLightbox,
 }) => {
   const t = translations[lang].actualidad;
-  const [blurEnabled, setBlurEnabled] = useState<boolean>(true);
   const [candidateIndices, setCandidateIndices] = useState<Record<string, number>>({});
   const [loadedUrls, setLoadedUrls] = useState<Record<string, string>>({});
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
@@ -72,38 +71,6 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
             {t.description}
           </p>
-        </div>
-
-        {/* Why Custom Software Box */}
-        <div className="mb-14 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-slate-50 to-blue-50/40 dark:from-slate-900 dark:to-blue-950/20 border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs">
-          <div className="space-y-1.5 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-              <Sparkles className="w-4 h-4" />
-              <span>{t.whyBuiltTitle}</span>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              {t.whyBuiltText}
-            </p>
-          </div>
-
-          {/* Privacy Blur Master Toggle Button */}
-          <div className="shrink-0 flex flex-col items-start md:items-end gap-1.5">
-            <button
-              onClick={() => setBlurEnabled(!blurEnabled)}
-              title={blurEnabled ? t.privacyToggleOff : t.privacyToggleOn}
-              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs ${
-                blurEnabled
-                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100'
-                  : 'bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700 hover:bg-amber-200'
-              }`}
-            >
-              {blurEnabled ? <EyeOff className="w-4 h-4 text-emerald-400 dark:text-emerald-600" /> : <Eye className="w-4 h-4 text-amber-600" />}
-              <span>{blurEnabled ? t.privacyToggleOn : t.privacyToggleOff}</span>
-            </button>
-            <span className="text-[11px] text-slate-500 dark:text-slate-400">
-              {t.privacyBadge}: {blurEnabled ? (lang === 'es' ? 'Difuminado 5px' : 'Blurred 5px') : (lang === 'es' ? 'Desprotegido' : 'Visible')}
-            </span>
-          </div>
         </div>
 
         {/* The 2 Apps Grid */}
@@ -149,16 +116,12 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
                           alt={app.name}
                           onLoad={() => handleImageLoad(app.id, currentCandidateUrl)}
                           onError={() => handleImageError(app.id, app.filename)}
-                          className={`w-full h-auto max-h-[340px] object-cover transition-all duration-300 group-hover:scale-102 ${
-                            blurEnabled ? 'blur-[5px] select-none' : 'blur-none'
-                          }`}
+                          className="w-full h-auto max-h-[340px] object-cover transition-all duration-300 group-hover:scale-102 blur-[5px] select-none"
                         />
                       ) : (
                         /* High-Fidelity Blurred UI Simulation Fallback (shown until user uploads the file or if browser fails) */
                         <div
-                          className={`w-full h-full p-4 sm:p-5 bg-slate-900 text-slate-200 font-mono text-[11px] select-none transition-all duration-300 ${
-                            blurEnabled ? 'blur-[5px] opacity-85' : 'blur-none opacity-100'
-                          }`}
+                          className="w-full h-full p-4 sm:p-5 bg-slate-900 text-slate-200 font-mono text-[11px] select-none transition-all duration-300 blur-[5px] opacity-85"
                         >
                           {/* Simulated Huboo Tool Bar */}
                           <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs">
