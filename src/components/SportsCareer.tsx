@@ -1,12 +1,15 @@
 import React from 'react';
-import { RUGBY_EXPERIENCE, RUGBY_GALLERY } from '../data/portfolioData';
+import { Language, translations } from '../data/translations';
 import { Trophy, Shield, Zap, Target, Users, Flame, Maximize2 } from 'lucide-react';
 
 interface SportsCareerProps {
+  lang: Language;
   onOpenLightbox: (imageUrl: string, title?: string, caption?: string) => void;
 }
 
-export const SportsCareer: React.FC<SportsCareerProps> = ({ onOpenLightbox }) => {
+export const SportsCareer: React.FC<SportsCareerProps> = ({ lang, onOpenLightbox }) => {
+  const t = translations[lang].sports;
+
   const iconMap: Record<number, typeof Shield> = {
     0: Flame,
     1: Zap,
@@ -20,37 +23,37 @@ export const SportsCareer: React.FC<SportsCareerProps> = ({ onOpenLightbox }) =>
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
-            Athletic Leadership & Pro Sports
+            {t.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            10 Years of Professional Rugby Across Europe
+            {t.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            {RUGBY_EXPERIENCE.description}
+            {t.description}
           </p>
           <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-medium text-slate-500 dark:text-slate-400">
             <span className="inline-flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-200">
               <Trophy className="w-4 h-4 text-amber-500" />
-              {RUGBY_EXPERIENCE.period}
+              {t.period}
             </span>
             <span aria-hidden="true">·</span>
-            <span>{RUGBY_EXPERIENCE.countries}</span>
+            <span>{t.countries}</span>
           </div>
         </div>
 
-        {/* Pro Rugby Photography Showcase (Click to expand) */}
+        {/* Pro Rugby Photography Showcase */}
         <div className="mb-14">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              Visual Highlights & High-Pressure Fixtures
+              {t.galleryTitle}
             </h3>
             <span className="text-xs text-slate-500 dark:text-slate-400">
-              Click photo to view full resolution
+              {t.galleryHint}
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {RUGBY_GALLERY.map((item, idx) => (
+            {t.galleryItems.map((item, idx) => (
               <div
                 key={idx}
                 onClick={() => onOpenLightbox(item.url, item.title, item.caption)}
@@ -85,22 +88,22 @@ export const SportsCareer: React.FC<SportsCareerProps> = ({ onOpenLightbox }) =>
           </div>
         </div>
 
-        {/* 4 Transferable Principles: Pro Rugby to Tech Sales */}
+        {/* 4 Transferable Principles */}
         <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs">
           <div className="max-w-2xl mb-8">
             <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-              Transferable Athletic Operating System
+              {t.principlesTag}
             </span>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
-              How Elite Rugby Competition Drives Outsized Sales Execution
+              {t.principlesTitle}
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Professional athletics taught me the exact cognitive habits that allow top 1% sales performers to thrive over long deal cycles.
+              {t.principlesSubtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {RUGBY_EXPERIENCE.takeaways.map((item, idx) => {
+            {t.principles.map((item, idx) => {
               const Icon = iconMap[idx] || Shield;
               return (
                 <div

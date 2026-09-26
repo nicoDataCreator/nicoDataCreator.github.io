@@ -1,40 +1,16 @@
 import React, { useState } from 'react';
-import { WORK_EXPERIENCE, TECHNICAL_SKILLS } from '../data/portfolioData';
-import { Briefcase, CheckCircle2, ChevronRight, BarChart3, Database, Target, Users } from 'lucide-react';
+import { Language, translations } from '../data/translations';
+import { CheckCircle2, ChevronRight, BarChart3, Database, Target, Users } from 'lucide-react';
 
-export const ProfessionalCareer: React.FC = () => {
+interface ProfessionalCareerProps {
+  lang: Language;
+}
+
+export const ProfessionalCareer: React.FC<ProfessionalCareerProps> = ({ lang }) => {
   const [activePlaybookTab, setActivePlaybookTab] = useState(0);
+  const t = translations[lang].career;
 
-  const playbookSteps = [
-    {
-      title: "01. Hyper-Targeted Outbound",
-      role: "ICP Definition & Discovery",
-      icon: Target,
-      description: "Combining intent signals, tech-stack scraping, and multi-threaded outreach across LinkedIn and email. Every message is personalized to the prospect's exact business bottlenecks.",
-      deliverables: ["Customized value hooks", "Multi-touch cadence (email, phone, social)", "Discovery agendas focused on ROI"]
-    },
-    {
-      title: "02. Data Enrichment & ETL",
-      role: "Sales Ops & Data Hygiene",
-      icon: Database,
-      description: "Leveraging Python and SQL scripts to clean, normalize, and enrich prospect datasets prior to CRM insertion, eliminating human data-entry errors and empowering accurate lead scoring.",
-      deliverables: ["Automated CRM deduplication", "Enriched firmographic data", "Clean pipeline reporting"]
-    },
-    {
-      title: "03. Consultative UX/UI Demos",
-      role: "Value Demonstration",
-      icon: BarChart3,
-      description: "Structuring demos around customer outcomes rather than feature tours. Demonstrating measurable UX enhancements that directly increase retention and reduce customer friction.",
-      deliverables: ["Tailored interactive prototypes", "Benchmark comparisons", "Executive buy-in alignment"]
-    },
-    {
-      title: "04. Deal Closing & Alignment",
-      role: "Mutual Action Planning",
-      icon: Users,
-      description: "Guiding prospects through legal, security, and procurement stages with clear mutual action plans. Uncovering unstated concerns to accelerate contract signatures.",
-      deliverables: ["Mutual action plans (MAP)", "Multi-stakeholder consensus", "Smooth handover to Customer Success"]
-    }
-  ];
+  const stageIcons = [Target, Database, BarChart3, Users];
 
   return (
     <section id="career" className="py-16 md:py-24 border-t border-slate-200 dark:border-slate-800">
@@ -42,13 +18,13 @@ export const ProfessionalCareer: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
-            Professional Trajectory
+            {t.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Consultative Software Sales & Data Operations
+            {t.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            From high-ticket negotiations in Madrid to enterprise UX/UI software sales at Betterplace, my background merges relentless outbound discipline with data science capabilities.
+            {t.description}
           </p>
         </div>
 
@@ -57,27 +33,27 @@ export const ProfessionalCareer: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
             <div>
               <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                Interactive Methodology
+                {t.playbookTag}
               </span>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
-                My End-to-End BDR & Account Executive Framework
+                {t.playbookTitle}
               </h3>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">
-              Click through the stages to see how I combine analytical rigor with consultative persuasion.
+              {t.playbookSubtitle}
             </p>
           </div>
 
           {/* Tab Selector */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-6">
-            {playbookSteps.map((step, idx) => {
-              const Icon = step.icon;
+            {t.playbookStages.map((step, idx) => {
+              const Icon = stageIcons[idx] || Target;
               const isActive = activePlaybookTab === idx;
               return (
                 <button
                   key={idx}
                   onClick={() => setActivePlaybookTab(idx)}
-                  className={`flex items-center gap-2.5 p-3 rounded-xl text-left transition-all ${
+                  className={`flex items-center gap-2.5 p-3 rounded-xl text-left transition-all cursor-pointer ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-sm'
                       : 'bg-white dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-700/60'
@@ -100,22 +76,22 @@ export const ProfessionalCareer: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
               <div className="md:col-span-8 space-y-2">
                 <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 font-mono">
-                  Stage {activePlaybookTab + 1} of 4
+                  {t.stageLabel} {activePlaybookTab + 1} of 4
                 </div>
                 <h4 className="text-base font-bold text-slate-900 dark:text-white">
-                  {playbookSteps[activePlaybookTab].title}
+                  {t.playbookStages[activePlaybookTab].title}
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  {playbookSteps[activePlaybookTab].description}
+                  {t.playbookStages[activePlaybookTab].description}
                 </p>
               </div>
 
               <div className="md:col-span-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 space-y-2">
                 <div className="text-xs font-semibold text-slate-800 dark:text-slate-200">
-                  Key Deliverables:
+                  {t.deliverablesLabel}
                 </div>
                 <ul className="space-y-1.5">
-                  {playbookSteps[activePlaybookTab].deliverables.map((item, dIdx) => (
+                  {t.playbookStages[activePlaybookTab].deliverables.map((item, dIdx) => (
                     <li key={dIdx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                       <span>{item}</span>
@@ -130,11 +106,11 @@ export const ProfessionalCareer: React.FC = () => {
         {/* Work Experience Timeline Cards */}
         <div className="space-y-6">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
-            Employment & Advisory History
+            {t.historyTitle}
           </h3>
 
           <div className="grid grid-cols-1 gap-6">
-            {WORK_EXPERIENCE.map((job) => (
+            {t.jobs.map((job) => (
               <div
                 key={job.id}
                 className="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all"
@@ -167,7 +143,7 @@ export const ProfessionalCareer: React.FC = () => {
                 {/* Achievements List */}
                 <div className="mt-4 space-y-2">
                   <div className="text-xs font-semibold text-slate-800 dark:text-slate-200">
-                    Key Outcomes & Impact:
+                    {t.deliverablesLabel}
                   </div>
                   <ul className="space-y-1.5">
                     {job.achievements.map((item, idx) => (
@@ -181,7 +157,7 @@ export const ProfessionalCareer: React.FC = () => {
 
                 {/* Skills tags */}
                 <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-medium text-slate-400 dark:text-slate-500 mr-1">Skills:</span>
+                  <span className="text-xs font-medium text-slate-400 dark:text-slate-500 mr-1">{t.skillsLabel}</span>
                   {job.skills.map((skill, sIdx) => (
                     <span
                       key={sIdx}
@@ -199,10 +175,10 @@ export const ProfessionalCareer: React.FC = () => {
         {/* Technical & Commercial Skills Matrix */}
         <div className="mt-14 pt-8 border-t border-slate-200 dark:border-slate-800">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
-            Core Competencies & Toolset
+            {t.skillsMatrixTitle}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TECHNICAL_SKILLS.map((group, gIdx) => (
+            {t.skillsCategories.map((group, gIdx) => (
               <div
                 key={gIdx}
                 className="p-5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800"
@@ -213,7 +189,7 @@ export const ProfessionalCareer: React.FC = () => {
                 <ul className="space-y-2">
                   {group.items.map((item, iIdx) => (
                     <li key={iIdx} className="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-slate-300">
-                      <ChevronRight className="w-3.5 h-3.5 text-blue-500" />
+                      <ChevronRight className="w-3.5 h-3.5 text-blue-500 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}

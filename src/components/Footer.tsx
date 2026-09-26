@@ -1,8 +1,15 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { Language, translations } from '../data/translations';
 import { ArrowUp } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  lang: Language;
+}
+
+export const Footer: React.FC<FooterProps> = ({ lang }) => {
+  const t = translations[lang].footer;
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,7 +22,7 @@ export const Footer: React.FC = () => {
             Nicolas Coronel
           </div>
           <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            BDR & Account Executive · Software, Data & High-Performance Athletic Mindset
+            {t.tagline}
           </div>
         </div>
 
@@ -44,10 +51,10 @@ export const Footer: React.FC = () => {
           <button
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="inline-flex items-center gap-1.5 p-2 rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 p-2 rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
           >
             <ArrowUp className="w-3.5 h-3.5" />
-            <span className="text-[11px] font-semibold">Top</span>
+            <span className="text-[11px] font-semibold">{t.top}</span>
           </button>
         </div>
       </div>

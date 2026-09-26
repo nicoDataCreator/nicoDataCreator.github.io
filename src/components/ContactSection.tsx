@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { Language, translations } from '../data/translations';
 import { Mail, Phone, Copy, Check, Send, MapPin, Calendar, Clock } from 'lucide-react';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  lang: Language;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const t = translations[lang].contact;
 
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    subject: 'BDR / AE Opportunity',
+    subject: t.subjectOptions[0],
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -39,13 +45,13 @@ export const ContactSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
-            Get in Touch
+            {t.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Let's Discuss Pipeline, Sales Execution & Tech Opportunities
+            {t.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            I am actively interviewing for BDR, SDR, and Account Executive roles in Madrid or fully remote. Reach out via email, phone, or LinkedIn.
+            {t.description}
           </p>
         </div>
 
@@ -59,7 +65,7 @@ export const ContactSection: React.FC = () => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Primary Email</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{t.emailLabel}</div>
                   <a
                     href={`mailto:${PERSONAL_INFO.email}`}
                     className="text-sm font-bold text-slate-900 dark:text-white hover:text-blue-600 transition-colors"
@@ -71,7 +77,7 @@ export const ContactSection: React.FC = () => {
               <button
                 onClick={handleCopyEmail}
                 title="Copy email"
-                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
               >
                 {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
               </button>
@@ -84,7 +90,7 @@ export const ContactSection: React.FC = () => {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">Mobile / WhatsApp</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{t.phoneLabel}</div>
                   <a
                     href={`tel:${PERSONAL_INFO.phone}`}
                     className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 transition-colors"
@@ -96,7 +102,7 @@ export const ContactSection: React.FC = () => {
               <button
                 onClick={handleCopyPhone}
                 title="Copy phone"
-                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
               >
                 {copiedPhone ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
               </button>
@@ -109,7 +115,7 @@ export const ContactSection: React.FC = () => {
                   <LinkedInIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">LinkedIn Profile</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{t.linkedinLabel}</div>
                   <a
                     href={PERSONAL_INFO.linkedin}
                     target="_blank"
@@ -126,15 +132,15 @@ export const ContactSection: React.FC = () => {
             <div className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>Location: Madrid, Spain (Central European Time · CET)</span>
+                <span>{t.locationNote}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>Response Time: Typically within 24 hours</span>
+                <span>{t.responseNote}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>Availability: Immediate start for the right team</span>
+                <span>{t.availNote}</span>
               </div>
             </div>
           </div>
@@ -143,10 +149,10 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-7">
             <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
-                Send an Intro Note
+                {t.formTitle}
               </h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
-                Have an open BDR/AE requisition, a partnership proposal, or want to talk cloud & data? Leave a note below.
+                {t.formSubtitle}
               </p>
 
               {submitted ? (
@@ -155,19 +161,19 @@ export const ContactSection: React.FC = () => {
                     <Check className="w-5 h-5" />
                   </div>
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                    Message Sent Successfully!
+                    {t.successTitle}
                   </h4>
                   <p className="text-xs text-slate-600 dark:text-slate-300">
-                    Thank you for reaching out, {formState.name}. Nicolas will respond to {formState.email} shortly.
+                    {t.successMessage}
                   </p>
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormState({ name: '', email: '', subject: 'BDR / AE Opportunity', message: '' });
+                      setFormState({ name: '', email: '', subject: t.subjectOptions[0], message: '' });
                     }}
-                    className="mt-3 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                    className="mt-3 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
                   >
-                    Send another note
+                    {t.sendAnother}
                   </button>
                 </div>
               ) : (
@@ -175,28 +181,28 @@ export const ContactSection: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                        Your Name
+                        {t.nameLabel}
                       </label>
                       <input
                         type="text"
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        placeholder="e.g. Elena Rossi"
+                        placeholder={t.namePlaceholder}
                         className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                        Email Address
+                        Email
                       </label>
                       <input
                         type="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="elena@company.com"
+                        placeholder={t.emailPlaceholder}
                         className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
@@ -204,40 +210,39 @@ export const ContactSection: React.FC = () => {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                      Subject / Topic
+                      {t.subjectLabel}
                     </label>
                     <select
                       value={formState.subject}
                       onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                       className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                      <option value="BDR / AE Opportunity">BDR / AE Opportunity</option>
-                      <option value="Software Sales Advisory">Software Sales Advisory</option>
-                      <option value="Data & Cloud Discussion">Data & Cloud Discussion</option>
-                      <option value="General Conversation">General Conversation</option>
+                      {t.subjectOptions.map((opt, oIdx) => (
+                        <option key={oIdx} value={opt}>{opt}</option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                      Message
+                      {t.messageLabel}
                     </label>
                     <textarea
                       rows={4}
                       required
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Hi Nicolas, I saw your portfolio and would like to talk about an open Account Executive position on our team..."
+                      placeholder={t.messagePlaceholder}
                       className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-lg shadow-xs transition-colors"
+                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-lg shadow-xs transition-colors cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Send Intro Message</span>
+                    <span>{t.submitButton}</span>
                   </button>
                 </form>
               )}

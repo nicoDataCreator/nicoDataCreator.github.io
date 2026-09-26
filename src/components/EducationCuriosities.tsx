@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { EDUCATION_LIST, CURIOSITIES } from '../data/portfolioData';
-import { GraduationCap, Award, ExternalLink, Check, Globe, Flame, Cpu, Compass, BookOpen } from 'lucide-react';
+import { Language, translations } from '../data/translations';
+import { GraduationCap, Award, ExternalLink, Check, Globe, Flame, Cpu, Compass } from 'lucide-react';
 
-export const EducationCuriosities: React.FC = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState<'EN' | 'IT' | 'ES'>('EN');
+interface EducationCuriositiesProps {
+  lang: Language;
+}
+
+export const EducationCuriosities: React.FC<EducationCuriositiesProps> = ({ lang }) => {
+  const [selectedLanguage, setSelectedLanguage] = useState<'EN' | 'IT' | 'ES'>(lang === 'es' ? 'ES' : 'EN');
+  const t = translations[lang].education;
 
   const languagePitches = {
     EN: {
@@ -36,13 +41,13 @@ export const EducationCuriosities: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
           <div className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider uppercase mb-2">
-            Academic Background & Curiosity Lab
+            {t.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Education, Certifications & Intellectual Curiosities
+            {t.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            Continuous technical upskilling paired with a relentless hunger to understand systems, languages, and high performance.
+            {t.description}
           </p>
         </div>
 
@@ -51,12 +56,12 @@ export const EducationCuriosities: React.FC = () => {
           <div className="flex items-center gap-2 mb-6">
             <GraduationCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-              Degrees, Cloud Certifications & Intensive Programs
+              {t.degreesTitle}
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {EDUCATION_LIST.map((edu) => (
+            {t.degrees.map((edu) => (
               <div
                 key={edu.id}
                 className="flex flex-col justify-between rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all"
@@ -95,7 +100,7 @@ export const EducationCuriosities: React.FC = () => {
                 </div>
 
                 {/* If AWS Credly badge is present */}
-                {edu.credlyBadgeId && (
+                {edu.hasCredly && (
                   <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
                     <a
                       href="https://www.credly.com/badges/9cf56a96-522a-40ee-aa59-aba1d829e52b"
@@ -104,7 +109,7 @@ export const EducationCuriosities: React.FC = () => {
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
                     >
                       <Award className="w-4 h-4 text-amber-500" />
-                      <span>Verify on Credly Official Registry</span>
+                      <span>{t.verifyCredly}</span>
                       <ExternalLink className="w-3 h-3 ml-0.5" />
                     </a>
                   </div>
@@ -118,13 +123,13 @@ export const EducationCuriosities: React.FC = () => {
         <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs">
           <div className="max-w-2xl mb-8">
             <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-              Curiosity & Growth Mindset
+              {t.curiositiesTag}
             </span>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
-              Curiosities, Multilingualism & Daily Discipline
+              {t.curiositiesTitle}
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-              What fuels my energy outside of pipeline spreadsheets: cultural adaptability, endurance athletics, and code experimentation.
+              {t.curiositiesSubtitle}
             </p>
           </div>
 
@@ -133,26 +138,26 @@ export const EducationCuriosities: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
               <div>
                 <span className="text-xs font-semibold text-blue-600 dark:text-blue-400">
-                  Interactive Trilingual Proficiency
+                  {t.trilingualTag}
                 </span>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                  Test My Pitch Across 3 Languages
+                  {t.trilingualTitle}
                 </h4>
               </div>
 
               {/* Language Switch Buttons */}
               <div className="inline-flex p-1 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
-                {(['EN', 'IT', 'ES'] as const).map((lang) => (
+                {(['EN', 'IT', 'ES'] as const).map((code) => (
                   <button
-                    key={lang}
-                    onClick={() => setSelectedLanguage(lang)}
-                    className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${
-                      selectedLanguage === lang
+                    key={code}
+                    onClick={() => setSelectedLanguage(code)}
+                    className={`px-3 py-1 text-xs font-bold rounded-md transition-all cursor-pointer ${
+                      selectedLanguage === code
                         ? 'bg-blue-600 text-white shadow-xs'
                         : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
                     }`}
                   >
-                    {lang === 'EN' ? '🇬🇧 English' : lang === 'IT' ? '🇮🇹 Italian' : '🇪🇸 Spanish'}
+                    {code === 'EN' ? '🇬🇧 English' : code === 'IT' ? '🇮🇹 Italiano' : '🇪🇸 Español'}
                   </button>
                 ))}
               </div>
@@ -173,7 +178,7 @@ export const EducationCuriosities: React.FC = () => {
 
           {/* Curiosity Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {CURIOSITIES.map((item, idx) => {
+            {t.curiosities.map((item, idx) => {
               const Icon = curiosityIcons[item.iconName] || Globe;
               return (
                 <div
@@ -197,7 +202,7 @@ export const EducationCuriosities: React.FC = () => {
                     {item.description}
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed pt-1 border-t border-slate-100 dark:border-slate-800/80">
-                    <span className="font-semibold text-slate-700 dark:text-slate-300">Context: </span>
+                    <span className="font-semibold text-slate-700 dark:text-slate-300">{t.contextLabel}</span>
                     {item.detail}
                   </p>
                 </div>
