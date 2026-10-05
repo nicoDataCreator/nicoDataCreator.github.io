@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X, ArrowUpRight, Globe } from 'lucide-react';
+import { Sun, Moon, ArrowUpRight, Globe } from 'lucide-react';
 import { Language, translations } from '../data/translations';
 
 interface NavbarProps {
@@ -20,7 +20,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   activeSection,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = translations[lang].nav;
 
   useEffect(() => {
@@ -45,14 +44,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
         isScrolled
           ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md shadow-xs border-b border-slate-200/80 dark:border-slate-800/80'
-          : 'bg-transparent border-b border-transparent'
+          : 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xs border-b border-slate-200/50 dark:border-slate-800/50 md:bg-transparent md:border-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Wordmark with Favicon */}
         <a
           href="#about"
-          className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap flex items-center gap-2"
+          className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors whitespace-nowrap flex items-center gap-2 shrink-0"
         >
           <img
             src="/favicon.ico"
@@ -65,19 +64,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           </span>
         </a>
 
-        {/* Desktop nav links */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
+        {/* Desktop / Tablet Nav Links directly visible */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-5 text-xs lg:text-sm font-medium">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative py-1 transition-colors whitespace-nowrap ${
+                className={`relative px-2.5 py-1 rounded-md transition-all whitespace-nowrap ${
                   isActive
-                    ? 'text-blue-600 dark:text-blue-400 font-semibold after:w-full'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white after:w-0'
-                } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-200`}
+                    ? 'text-blue-600 dark:text-blue-400 font-bold bg-blue-50/80 dark:bg-blue-950/50 shadow-2xs'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/70'
+                }`}
               >
                 {link.label}
               </a>
@@ -86,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Action Controls: 1-Click Language Switcher, Sun/Moon Theme, and CTA */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           {/* 1-Click Language Switcher */}
           <button
             onClick={onToggleLang}
@@ -116,73 +115,33 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Contact button */}
           <button
             onClick={onOpenContactDock}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-lg shadow-xs transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-lg shadow-xs transition-colors whitespace-nowrap cursor-pointer"
           >
             <span>{t.getInTouch}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
-
-          {/* Mobile menu trigger */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            className="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
 
-      {/* Mobile drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden px-4 pt-2 pb-6 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-xl space-y-2">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
-                  isActive
-                    ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-semibold'
-                    : 'font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
-                }`}
-              >
-                {link.label}
-              </a>
-            );
-          })}
-
-          <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
-            <button
-              onClick={onToggleLang}
-              className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
+      {/* Mobile Directly Visible Sections Bar (No dropdown, no menu icon needed) */}
+      <div className="md:hidden border-t border-slate-200/70 dark:border-slate-800/70 px-4 py-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar bg-white/95 dark:bg-slate-950/95 backdrop-blur-md shadow-2xs">
+        {navLinks.map((link) => {
+          const isActive = activeSection === link.id;
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all shrink-0 ${
+                isActive
+                  ? 'bg-blue-600 text-white font-semibold shadow-xs'
+                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60'
+              }`}
             >
-              <Globe className="w-3.5 h-3.5 text-blue-500" />
-              <span>{lang === 'en' ? '🇪🇸 Cambiar a Español' : '🇬🇧 Switch to English'}</span>
-            </button>
-
-            <button
-              onClick={onToggleTheme}
-              className="p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200"
-            >
-              {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
-            </button>
-          </div>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenContactDock();
-            }}
-            className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors mt-2"
-          >
-            <span>{t.getInTouch}</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+              {link.label}
+            </a>
+          );
+        })}
+      </div>
     </header>
   );
 };
