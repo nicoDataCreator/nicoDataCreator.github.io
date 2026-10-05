@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { Language, translations } from '../data/translations';
-import { Menu, X, Mail, Phone, Copy, Check, ArrowUpRight, MapPin, Globe } from 'lucide-react';
+import { X, Mail, Phone, Copy, Check, ArrowUpRight, MapPin, Globe } from 'lucide-react';
 import { LinkedInIcon } from './icons/LinkedInIcon';
 
 interface FloatingContactDockProps {
@@ -21,7 +21,6 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
 }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const t = translations[lang].dock;
-  const navT = translations[lang].nav;
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -132,67 +131,44 @@ export const FloatingContactDock: React.FC<FloatingContactDockProps> = ({
             </a>
           </div>
 
-          {/* Quick Jump Navigation in Menu */}
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-1 text-xs">
-            <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">
-              {t.jumpTitle}
-            </div>
-            {[
-              { label: navT.actualidad, href: '#actualidad' },
-              { label: navT.career, href: '#career' },
-              { label: navT.sports, href: '#sports' },
-              { label: navT.projects, href: '#projects' },
-              { label: navT.education, href: '#education' },
-              { label: navT.contact, href: '#contact' },
-            ].map((link, idx) => (
-              <a
-                key={idx}
-                href={link.href}
-                onClick={onClose}
-                className="block py-1.5 px-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-600 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="pt-1 text-[10px] text-slate-400 dark:text-slate-500 text-center flex items-center justify-center gap-1">
-            <MapPin className="w-3 h-3" />
+          {/* Direct channels footer note */}
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 text-center flex items-center justify-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5 text-blue-500" />
             <span>{t.location}</span>
           </div>
         </div>
       )}
 
-      {/* The Sticky Bottom Floating Dock with Profile Picture & Hamburger Icon */}
+      {/* The Sticky Bottom Floating Dock with Profile Picture & Mail Icon */}
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
         <button
           onClick={onToggle}
-          aria-label={isOpen ? t.closeLabel : t.menuLabel}
-          className="group flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-2xl hover:scale-103 active:scale-98 transition-all border border-slate-700 dark:border-slate-200 cursor-pointer"
+          aria-label={isOpen ? t.closeLabel : t.contactButton}
+          className="group flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-2xl hover:scale-103 active:scale-98 transition-all border border-slate-700 dark:border-slate-200 cursor-pointer"
         >
           {/* Nicolas's Profile Photo inside the Dock */}
           <div className="relative">
             <img
               src={PERSONAL_INFO.avatarUrl}
               alt="Nicolas Coronel"
-              className="w-9 h-9 rounded-full object-cover border-2 border-blue-500"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover border-2 border-blue-500"
             />
             <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-slate-900 dark:border-white"></span>
           </div>
 
-          {/* Label + Hamburger / Close Icon */}
+          {/* Label + Mail / Close Icon */}
           <div className="flex items-center gap-2">
             <div className="text-left hidden xs:block">
               <div className="text-xs font-bold leading-tight flex items-center gap-1">
                 <span>{t.contactButton}</span>
               </div>
-              <div className="text-[10px] opacity-80 leading-tight">
-                {isOpen ? t.closeLabel : t.menuLabel}
+              <div className="text-[10px] text-emerald-400 dark:text-emerald-600 font-medium leading-tight">
+                {isOpen ? t.closeLabel : t.availableText}
               </div>
             </div>
 
             <div className="p-1 rounded-full bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900">
-              {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {isOpen ? <X className="w-3.5 h-3.5" /> : <Mail className="w-3.5 h-3.5" />}
             </div>
           </div>
         </button>

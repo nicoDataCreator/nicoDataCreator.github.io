@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenContactDock }) => {
   const t = translations[lang].hero;
 
   return (
-    <section id="about" className="pt-28 pb-16 md:pt-36 md:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="pt-32 pb-16 lg:pt-36 lg:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left Column: Editorial Typography & Value Proposition */}
         <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
