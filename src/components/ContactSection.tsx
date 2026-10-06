@@ -131,7 +131,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
             {/* WhatsApp / Mobile */}
             <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs flex items-center justify-between">
               <a
-                href="https://wa.me/34607055125"
+                href="https://wa.me/34621053129"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3.5 group min-w-0"

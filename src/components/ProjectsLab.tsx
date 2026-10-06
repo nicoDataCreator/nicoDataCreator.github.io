@@ -33,7 +33,7 @@ export const ProjectsLab: React.FC<ProjectsLabProps> = ({ lang, onOpenLightbox }
           intent: 'recruiting.schedule_interview',
           confidence: '99.4%',
           response:
-            'Nicolás está disponible para roles BDM y AE en Madrid o remoto. Puedes contactarlo directamente a nico.coronel@protonmail.com o al +34 607 055 125.',
+            'Nicolás está disponible para roles BDM y AE en Madrid o remoto. Puedes contactarlo directamente a nico.coronel@protonmail.com o al +34 621 053 129.',
         },
       ]
     : [
@@ -51,7 +51,7 @@ export const ProjectsLab: React.FC<ProjectsLabProps> = ({ lang, onOpenLightbox }
           intent: 'recruiting.schedule_interview',
           confidence: '99.4%',
           response:
-            'Nicolás is actively open to BDM & AE positions in Madrid or remote. Reach him directly at nico.coronel@protonmail.com or +34 607 055 125.',
+            'Nicolás is actively open to BDM & AE positions in Madrid or remote. Reach him directly at nico.coronel@protonmail.com or +34 621 053 129.',
         },
       ];
 

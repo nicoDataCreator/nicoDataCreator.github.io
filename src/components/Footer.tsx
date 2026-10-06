@@ -86,12 +86,12 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
                 {PERSONAL_INFO.email}
               </a>
               <a
-                href="https://wa.me/34607055125"
+                href="https://wa.me/34621053129"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
               >
-                WhatsApp (+34 607 055 125)
+                WhatsApp (+34 621 053 129)
               </a>
               <a
                 href="#contact"

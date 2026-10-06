@@ -147,10 +147,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="text-base sm:text-lg font-bold tracking-tight whitespace-nowrap">
                 Nicolás Coronel
               </span>
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 font-mono text-[10px] font-bold uppercase tracking-wider border border-emerald-200/80 dark:border-emerald-800/80">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1 animate-pulse"></span>
-                High Agency
-              </span>
             </div>
             <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 hidden sm:inline leading-tight">
               {lang === 'es' ? 'Crecimiento B2B & Arquitectura Algorítmica' : 'Executive Growth & Algorithmic Architecture'}
