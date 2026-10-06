@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sun, Moon, ArrowUpRight, Globe, Mail } from 'lucide-react';
 import { Language, translations } from '../data/translations';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -21,8 +21,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   activeSection = 'about',
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const activeTabRef = useRef<HTMLAnchorElement | null>(null);
   const t = translations[lang].nav;
   const isEs = lang === 'es';
 
@@ -87,25 +85,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     },
   ];
 
-  // Auto-scroll the mobile ribbon to center the active section tab
-  useEffect(() => {
-    if (activeTabRef.current && scrollContainerRef.current) {
-      activeTabRef.current.scrollIntoView({
-        behavior: 'smooth',
-        inline: 'center',
-        block: 'nearest',
-      });
-    }
-  }, [activeSection]);
-
   // Smooth scroll handler with responsive offset compensation
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const isSubBarActive = window.innerWidth < 1280;
-      const headerOffset = isSubBarActive ? 104 : 76;
+      const headerOffset = 76;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = Math.max(0, elementPosition - headerOffset);
 
@@ -127,12 +113,12 @@ export const Navbar: React.FC<NavbarProps> = ({
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md shadow-xs border-b border-slate-200/80 dark:border-slate-800/80'
-          : 'bg-white/85 dark:bg-slate-950/85 backdrop-blur-sm border-b border-slate-200/50 dark:border-slate-800/50 xl:bg-white/90 xl:dark:bg-slate-950/90'
+          : 'bg-white/85 dark:bg-slate-950/85 backdrop-blur-sm border-b border-slate-200/50 dark:border-slate-800/50'
       }`}
     >
       {/* Primary Top Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="h-16 sm:h-18 flex items-center justify-between gap-6">
+        <div className="h-16 sm:h-18 flex items-center justify-between gap-4">
           {/* Left Column: Brand (shrink-0 so it NEVER collides or compresses) */}
           <div className="flex items-center shrink-0">
             <a
@@ -156,8 +142,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </a>
           </div>
 
-          {/* Center Column: Desktop Navigation (Only on >= 1280px with ample space, centered in the layout) */}
-          <nav className="hidden xl:flex items-center justify-center gap-1.5 2xl:gap-2 text-xs font-semibold shrink-0">
+          {/* Center Column: Desktop Navigation (centered in the layout) */}
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 text-xs font-semibold shrink-0">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -165,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap ${
+                  className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? 'text-blue-600 dark:text-blue-400 font-bold bg-blue-50/90 dark:bg-blue-950/70 shadow-2xs'
                       : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/70'
@@ -225,40 +211,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               title={isEs ? 'Contacto directo con Nicolás' : 'Direct contact with Nicolás'}
             />
           </div>
-        </div>
-      </div>
-
-      {/* Directly Visible Sub-Ribbon (< 1280px): Centered, generous breathing room, zero overlapping */}
-      <div className="xl:hidden relative border-t border-slate-200/70 dark:border-slate-800/70 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md">
-        {/* Subtle Edge Gradients for Mobile Swipe Cue */}
-        <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-white dark:from-slate-950 to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-white dark:from-slate-950 to-transparent pointer-events-none z-10" />
-
-        <div
-          ref={scrollContainerRef}
-          className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-start md:justify-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth"
-        >
-          {navItems.map((item) => {
-            const isActive = activeSection === item.id;
-            return (
-              <a
-                key={item.href}
-                ref={isActive ? activeTabRef : null}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs whitespace-nowrap transition-all duration-150 shrink-0 ${
-                  isActive
-                    ? 'bg-blue-600 text-white font-bold shadow-xs scale-102'
-                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white bg-slate-100 dark:bg-slate-900 border border-slate-200/70 dark:border-slate-800/70 font-medium'
-                }`}
-              >
-                <span className={`text-[10px] font-mono ${isActive ? 'text-blue-200' : 'text-slate-400 dark:text-slate-500'}`}>
-                  {item.num}
-                </span>
-                <span>{item.shortLabel}</span>
-              </a>
-            );
-          })}
         </div>
       </div>
     </header>

@@ -139,26 +139,6 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenContactDock }) => {
                   </div>
                 </div>
               </a>
-
-              {/* Micro-stats under portrait */}
-              <div className="grid grid-cols-2 gap-2 pt-1">
-                <div className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800/70 p-2.5 rounded-lg flex flex-col">
-                  <span className="text-[10px] font-bold font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wider">
-                    {lang === 'es' ? 'Ritmo de Ascenso' : 'Promotion Pace'}
-                  </span>
-                  <span className="text-xs font-extrabold text-blue-600 dark:text-blue-400 mt-0.5">
-                    {lang === 'es' ? 'SDR → BDM en 4 Meses' : 'SDR → BDM in 4 Mo.'}
-                  </span>
-                </div>
-                <div className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800/70 p-2.5 rounded-lg flex flex-col">
-                  <span className="text-[10px] font-bold font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wider">
-                    {lang === 'es' ? 'Mentalidad' : 'Execution Style'}
-                  </span>
-                  <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5">
-                    {lang === 'es' ? 'Cero Excusas · Resiliencia' : 'Zero-Excuses Grit'}
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
