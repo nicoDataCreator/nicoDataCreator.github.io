@@ -6,8 +6,8 @@ export const PERSONAL_INFO = {
   location: "Madrid, Spain",
   summary: "Specializing in pipeline development, and end-to-end deal execution. Fast-tracked at Huboo Technologies through consistent quota overperformance and data-driven sales strategies. Brings 10 years of elite sports discipline, resilience, and a hands-on mindset to revenue generation. Multilingual (EN/ES/IT), Madrid-based, and built to open high-value doors in fast-paced tech environments.",
   email: "nico.coronel@protonmail.com",
-  phone: "+34 621 053 129",
-  linkedin: "https://linkedin.com/in/nicolasjuancoronel",
+  phone: "+34 607 055 125",
+  linkedin: "https://linkedin.com/in/nicolasgonzalezcoronel",
   avatarUrl: "/assets/profile.jpg",
   languages: [
     { name: "English", level: "Fluent / Professional Working Proficiency" },

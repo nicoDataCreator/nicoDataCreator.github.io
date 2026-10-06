@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Language, translations } from '../data/translations';
-import { Maximize2, CheckCircle2, Building2, TrendingUp, Layers, FileSpreadsheet } from 'lucide-react';
+import { Maximize2, CheckCircle2, Building2, AlertTriangle, ArrowUpRight } from 'lucide-react';
 
 interface ActualidadSectionProps {
   lang: Language;
@@ -45,33 +45,32 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
   };
 
   return (
-    <section id="actualidad" className="py-16 md:py-24 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60">
+    <section id="actualidad" className="py-16 md:py-24 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header with Huboo Identity & Status */}
-        <div className="max-w-4xl mb-12">
+        {/* Section Header with Huboo Identity & Status */}
+        <div className="max-w-3xl mb-12">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-              <Building2 className="w-3.5 h-3.5" />
-              <span>{t.company} · {t.role}</span>
+            <span className="font-mono text-[11px] font-bold uppercase text-blue-600 dark:text-blue-400 tracking-wider">
+              {lang === 'es' ? 'Ingeniería Comercial Interna' : 'Internal Sales Engineering'}
             </span>
-
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>{lang === 'es' ? 'Rol Actual' : 'Active Role'}</span>
+            <span aria-hidden="true" className="text-slate-300 dark:text-slate-700">·</span>
+            <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-mono text-[10px] font-bold uppercase tracking-wide border border-emerald-200 dark:border-emerald-800">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block mr-1"></span>
+              {lang === 'es' ? 'Herramientas Activas en Producción' : 'Active Production Tools'}
             </span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {t.title}
+            Huboo Technologies · {lang === 'es' ? 'Software Comercial Propio' : 'Internal Sales Software'}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
             {t.description}
           </p>
         </div>
 
-        {/* The 2 Apps Grid */}
+        {/* The 2 Apps Stack */}
         <div className="space-y-12">
-          {t.apps.map((app) => {
+          {t.apps.map((app, index) => {
             const isOutbound = app.id === 'lista-outbound';
             const candidates = getCandidateUrls(app.filename);
             const currentCandidateIndex = candidateIndices[app.id] || 0;
@@ -79,181 +78,133 @@ export const ActualidadSection: React.FC<ActualidadSectionProps> = ({
             const activeImageUrl = loadedUrls[app.id] || currentCandidateUrl;
             const isError = imageErrors[app.id] === true;
 
+            const scriptFilename = isOutbound
+              ? 'lista_outbound.py — Lead Intelligence App'
+              : 'lista_propuestas.py — Commercial Engine';
+
+            const impactMetrics = isOutbound
+              ? [
+                  { num: '3x Increase', label: lang === 'es' ? 'Contactos Cualificados/Semana' : 'Weekly Qualified Touches', color: 'emerald' },
+                  { num: 'Zero Friction', label: lang === 'es' ? 'Reingreso Manual de Datos' : 'Manual Data Re-Entry', color: 'blue' },
+                  { num: '+42% CVR', label: lang === 'es' ? 'Ganchos de Valor a Medida' : 'Targeted Buyer Hooks', color: 'cyan' },
+                ]
+              : [
+                  { num: '<15 Mins', label: lang === 'es' ? 'Tiempo de Entrega (vs 48h)' : 'Turnaround (Down from 48h)', color: 'emerald' },
+                  { num: '100% Margin', label: lang === 'es' ? 'Precisión de Tarifas' : 'Margin Guardrails', color: 'blue' },
+                  { num: '+28% Closed', label: lang === 'es' ? 'Respuestas Rápidas' : 'Instant Pricing Win-Rate', color: 'cyan' },
+                ];
+
             return (
               <div
                 key={app.id}
-                className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all"
+                className={`p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col ${
+                  index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
+                } gap-8 items-center`}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8">
-                  {/* Left Column: Real Screenshot (Clean, click to expand in lightbox) */}
-                  <div className="lg:col-span-6 flex flex-col justify-between space-y-3">
-                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pb-2 border-b border-slate-100 dark:border-slate-800">
-                      <div className="flex items-center gap-2">
-                        <FileSpreadsheet className="w-4 h-4 text-blue-500" />
-                        <span className="font-mono font-semibold text-slate-800 dark:text-slate-200">
-                          {app.filename}
-                        </span>
-                      </div>
-                      <span className="text-[11px] text-slate-400">
-                        {app.badge}
-                      </span>
+                {/* Visual Window Mockup Frame */}
+                <div className="w-full lg:w-1/2 flex flex-col rounded-xl overflow-hidden bg-slate-950 border border-slate-200/80 dark:border-slate-800 shadow-md">
+                  {/* Window Bar */}
+                  <div className="h-8 bg-slate-100 dark:bg-slate-800/90 px-3 flex items-center justify-between border-b border-slate-200 dark:border-slate-700/80">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
                     </div>
-
-                    {/* Screenshot Container with Click to Lightbox */}
-                    <div
-                      onClick={() => onOpenLightbox(activeImageUrl, app.name, app.description)}
-                      className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-inner flex items-center justify-center min-h-[260px] sm:min-h-[300px]"
-                    >
-                      {!isError ? (
-                        <img
-                          src={currentCandidateUrl}
-                          alt={app.name}
-                          onLoad={() => handleImageLoad(app.id, currentCandidateUrl)}
-                          onError={() => handleImageError(app.id, app.filename)}
-                          className="w-full h-auto max-h-[380px] object-cover transition-all duration-300 group-hover:scale-101 select-none"
-                        />
-                      ) : (
-                        <div
-                          className="w-full h-full p-4 sm:p-5 bg-slate-900 text-slate-200 font-mono text-[11px] select-none transition-all duration-300 opacity-90"
-                        >
-                          <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs">
-                            <div className="flex items-center gap-2">
-                              <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                              <span className="font-bold text-white tracking-wide">
-                                Huboo · {app.name}
-                              </span>
-                            </div>
-                            <span className="text-emerald-400 text-[10px] bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
-                              ACTIVE
-                            </span>
-                          </div>
-
-                          {isOutbound ? (
-                            <div className="space-y-2">
-                              <div className="grid grid-cols-4 gap-2 text-[10px] text-slate-400 pb-1 border-b border-slate-800 font-semibold">
-                                <div>MERCHANT BRAND</div>
-                                <div>EST. ORDERS/MO</div>
-                                <div>TECH STACK</div>
-                                <div>STATUS</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
-                                <div>Nordic Apparel Co.</div>
-                                <div className="text-emerald-400 font-semibold">8,450 / mo</div>
-                                <div>Shopify Plus</div>
-                                <div className="text-blue-400">Reached</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
-                                <div>VitaCare Health SL</div>
-                                <div className="text-emerald-400 font-semibold">14,200 / mo</div>
-                                <div>WooCommerce</div>
-                                <div className="text-amber-400">Discovery</div>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="space-y-2">
-                              <div className="grid grid-cols-4 gap-2 text-[10px] text-slate-400 pb-1 border-b border-slate-800 font-semibold">
-                                <div>PROPOSAL / CLIENT</div>
-                                <div>FULFILLMENT PLAN</div>
-                                <div>MARGIN %</div>
-                                <div>ACTION STATUS</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
-                                <div>PR-2024-089 · Brand A</div>
-                                <div>Multi-Hub EU</div>
-                                <div className="text-emerald-400 font-bold">28.4%</div>
-                                <div className="text-emerald-400">Sent</div>
-                              </div>
-                              <div className="grid grid-cols-4 gap-2 py-1 border-b border-slate-800/60 text-slate-300">
-                                <div>PR-2024-094 · Brand B</div>
-                                <div>UK Standard</div>
-                                <div className="text-emerald-400 font-bold">31.2%</div>
-                                <div className="text-blue-400">Review</div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Hover Expand Trigger */}
-                      <div className="absolute top-3 right-3 p-2 rounded-lg bg-black/70 text-white backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Maximize2 className="w-4 h-4" />
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
-                      <span>{t.clickToExpand}</span>
-                      <span className="text-slate-400 font-mono text-[10px]">
-                        {app.tag}
-                      </span>
-                    </div>
+                    <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 font-medium truncate px-2">
+                      {scriptFilename}
+                    </span>
+                    <span className="w-4"></span>
                   </div>
 
-                  {/* Right Column: Key Details, Capabilities & Measurable Impact */}
-                  <div className="lg:col-span-6 flex flex-col justify-between space-y-5">
-                    <div>
-                      {/* Tags */}
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300">
-                          {app.badge}
+                  {/* Screenshot Image Container with Zoom support */}
+                  <div
+                    onClick={() => onOpenLightbox(activeImageUrl, app.name, app.description)}
+                    className="group relative cursor-pointer overflow-hidden bg-slate-900 flex items-center justify-center min-h-[240px] sm:min-h-[290px]"
+                  >
+                    {!isError ? (
+                      <img
+                        src={currentCandidateUrl}
+                        alt={app.name}
+                        onLoad={() => handleImageLoad(app.id, currentCandidateUrl)}
+                        onError={() => handleImageError(app.id, app.filename)}
+                        className="w-full h-auto max-h-[360px] object-contain transition-transform duration-300 group-hover:scale-102 select-none"
+                      />
+                    ) : (
+                      <div className="p-6 text-slate-400 text-xs font-mono text-center">
+                        <div>[{app.name} Preview Mockup]</div>
+                        <div className="text-[10px] text-slate-500 mt-1">{app.filename}</div>
+                      </div>
+                    )}
+
+                    {/* Hover Prompt */}
+                    <div className="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/30 transition-colors flex items-center justify-center">
+                      <div className="px-3 py-1.5 rounded-lg bg-slate-950/85 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg border border-white/10">
+                        <Maximize2 className="w-3.5 h-3.5" />
+                        <span>{lang === 'es' ? 'Haz clic para ampliar' : 'Click to zoom'}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content & Breakdown */}
+                <div className="w-full lg:w-1/2 flex flex-col gap-4">
+                  <div>
+                    <span className="font-mono text-[11px] font-bold uppercase text-blue-600 dark:text-blue-400 tracking-wider">
+                      {app.tag}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-1">
+                      {app.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                      {app.description}
+                    </p>
+                  </div>
+
+                  {/* Bottleneck Resolved Box */}
+                  <div className="p-3.5 rounded-xl bg-red-50/80 dark:bg-red-950/30 border border-red-200/80 dark:border-red-900/60 flex flex-col gap-1">
+                    <span className="font-mono text-[10px] uppercase font-bold text-red-700 dark:text-red-400 flex items-center gap-1 tracking-wider">
+                      <AlertTriangle className="w-3.5 h-3.5 text-red-600 dark:text-red-400 shrink-0" />
+                      {lang === 'es' ? 'Cuello de Botella Operativo Resuelto' : 'Operational Bottleneck Resolved'}
+                    </span>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                      {app.problemSolved}
+                    </p>
+                  </div>
+
+                  {/* Capabilities List */}
+                  <div className="space-y-1.5">
+                    <span className="font-mono text-[10px] font-bold uppercase text-slate-400 dark:text-slate-500 tracking-wider">
+                      {lang === 'es' ? 'Capacidades Desarrolladas:' : 'Custom-Built Capabilities:'}
+                    </span>
+                    <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300">
+                      {app.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* 3 Measurable Impact Badges */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2">
+                    {impactMetrics.map((met, mIdx) => (
+                      <div
+                        key={mIdx}
+                        className={`p-2.5 rounded-lg border flex flex-col ${
+                          met.color === 'emerald'
+                            ? 'bg-emerald-50/70 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+                            : met.color === 'blue'
+                            ? 'bg-blue-50/70 dark:bg-blue-950/40 border-blue-200/80 dark:border-blue-800 text-blue-800 dark:text-blue-300'
+                            : 'bg-cyan-50/70 dark:bg-cyan-950/40 border-cyan-200/80 dark:border-cyan-800 text-cyan-800 dark:text-cyan-300'
+                        }`}
+                      >
+                        <span className="font-extrabold text-xs sm:text-sm font-mono tracking-tight">{met.num}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-wider mt-0.5 leading-tight opacity-90">
+                          {met.label}
                         </span>
-                        <span aria-hidden="true" className="text-slate-300 dark:text-slate-700">·</span>
-                        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                          {app.tag}
-                        </span>
                       </div>
-
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                        {app.name}
-                      </h3>
-
-                      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {app.description}
-                      </p>
-                    </div>
-
-                    {/* Operational Bottleneck Resolved */}
-                    <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800">
-                      <div className="text-xs font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-1.5">
-                        <Layers className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                        <span>{lang === 'es' ? 'Fricción Operativa Resuelta' : 'Operational Bottleneck Resolved'}</span>
-                      </div>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                        {app.problemSolved}
-                      </p>
-                    </div>
-
-                    {/* Features List */}
-                    <div className="space-y-2">
-                      <div className="text-xs font-bold text-slate-900 dark:text-white">
-                        {lang === 'es' ? 'Funcionalidades Diseñadas para Huboo:' : 'Custom Built Capabilities:'}
-                      </div>
-                      <ul className="space-y-1.5">
-                        {app.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Measurable Impact */}
-                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
-                      <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 mb-2 flex items-center gap-1.5">
-                        <TrendingUp className="w-3.5 h-3.5" />
-                        <span>{lang === 'es' ? 'Impacto Comercial Cuantificable:' : 'Measurable Commercial Impact:'}</span>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                        {app.impact.map((imp, impIdx) => (
-                          <div
-                            key={impIdx}
-                            className="p-2.5 rounded-lg bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/40 text-xs font-medium text-emerald-900 dark:text-emerald-200 leading-snug"
-                          >
-                            {imp}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
