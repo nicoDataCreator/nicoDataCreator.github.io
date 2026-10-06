@@ -42,15 +42,15 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenContactDock }) => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15] text-balance">
             {lang === 'es' ? (
               <>
-                High Agency &amp; Extreme Ownership |{' '}
-                <span className="text-blue-600 dark:text-blue-400">De Ex Atleta Profesional</span>{' '}
-                a Líder de Crecimiento B2B
+                High Agency &amp; Ownership |{' '}
+                <span className="text-blue-600 dark:text-blue-400">Líder de Crecimiento B2B</span>{' '}
+                | Ex Atleta Pro
               </>
             ) : (
               <>
-                High Agency &amp; Extreme Ownership |{' '}
-                <span className="text-blue-600 dark:text-blue-400">Ex-Professional Athlete</span>{' '}
-                turned B2B Growth Leader
+                High Agency &amp; Ownership |{' '}
+                <span className="text-blue-600 dark:text-blue-400">B2B Growth Leader</span>{' '}
+                | Ex-Pro Athlete
               </>
             )}
           </h1>
